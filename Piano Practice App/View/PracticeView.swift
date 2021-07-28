@@ -19,6 +19,7 @@ struct PracticeView: View {
     @Binding var shape: PracticePiece
     @State var showingRecordingAlert = false
     @State var showingCancelAlert = false
+    @State var showingButtons: Bool
     
 //    @Binding var isDark: Bool
     
@@ -120,18 +121,18 @@ struct PracticeView: View {
             .navigationBarItems(leading: Button(action: {
                 showingCancelAlert.toggle()
             }, label: {
-                Text("Cancel")
+                Text(showingButtons ? "Cancel" : "")
                 }), trailing: Button(action: {
-                    
+                    presentationMode.wrappedValue.dismiss()
                 }, label: {
-                    Text("Save")
-                })
+                    Text(showingButtons ? "Save" : "")
+            }))
             
             .alert(isPresented: $showingCancelAlert) {
                 Alert(title: Text("Are you Sure to Dismiss All the Progress?"), message: Text("This Will Unsave All the Changes You Have Made"), primaryButton: .default(Text("OK"), action: {
                     presentationMode.wrappedValue.dismiss()
                 }), secondaryButton: .cancel())
-            })
+            }
         }
     }
 }
@@ -140,6 +141,6 @@ struct PracticeView: View {
 
 struct PracticeView_Previews: PreviewProvider {
     static var previews: some View {
-        PracticeView(practiceSong: dummySong[0], currentTime: 0, timerStartAutomatic: false, shape: .constant(listOfPracticePiece[3]))
+        PracticeView(practiceSong: dummySong[0], currentTime: 0, timerStartAutomatic: false, shape: .constant(listOfPracticePiece[3]), showingButtons: true)
     }
 }

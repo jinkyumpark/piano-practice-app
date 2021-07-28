@@ -49,7 +49,7 @@ struct HomeView: View {
                             RectanglePlayView(color: Color.yellow, title: "Random Review", subImage: "play.circle.fill")
                         }
                         .sheet(isPresented: $showingSheetReview) {
-                            PracticeView(practiceSong: song.songData[songIndex], timerStartAutomatic: true, shape: $practicePiece)
+                            PracticeView(practiceSong: song.songData[songIndex], timerStartAutomatic: true, shape: $practicePiece, showingButtons: true)
                         }
                         
                         Button {
@@ -58,7 +58,7 @@ struct HomeView: View {
                             RectanglePlayView(color: Color.red, title: "Start Now", subImage: "play.fill")
                         }
                         .sheet(isPresented: $showingSheetStart) {
-                            PracticeView(practiceSong: song.mainSelectedSong, timerStartAutomatic: true, shape: $practicePiece)
+                            PracticeView(practiceSong: song.mainSelectedSong, timerStartAutomatic: true, shape: $practicePiece, showingButtons: true)
                         }
                     }
                 }

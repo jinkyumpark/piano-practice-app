@@ -33,7 +33,7 @@ struct Pianoman: View {
                 }
             
             PracticeView(practiceSong: songs.songData.isEmpty ? dummySong[0] : songs.mainSelectedSong, timerStartAutomatic: false,
-                         shape: $selectedPracticePiece)
+                         shape: $selectedPracticePiece, showingButtons: false)
                 .tabItem {
                     Image(systemName: "pencil")
                     Text("Practice")

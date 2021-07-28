@@ -117,9 +117,16 @@ struct PracticeView: View {
                 
             }
             .navigationTitle("Practice : \(practiceSong.timesPracticed)")
-            .navigationBarItems(trailing: Button("Unsave") {
+            .navigationBarItems(leading: Button(action: {
                 showingCancelAlert.toggle()
-            }
+            }, label: {
+                Text("Cancel")
+                }), trailing: Button(action: {
+                    
+                }, label: {
+                    Text("Save")
+                })
+            
             .alert(isPresented: $showingCancelAlert) {
                 Alert(title: Text("Are you Sure to Dismiss All the Progress?"), message: Text("This Will Unsave All the Changes You Have Made"), primaryButton: .default(Text("OK"), action: {
                     presentationMode.wrappedValue.dismiss()

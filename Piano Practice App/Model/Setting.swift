@@ -21,3 +21,15 @@ extension Dictionary where Value: Equatable {
         return first(where: { $1 == val })?.key
     }
 }
+
+class Settings: ObservableObject {
+    @Published var forcedDarkMode: Bool {
+        didSet {
+            UserDefaults.standard.set(forcedDarkMode, forKey: "forcedDarkMode")
+        }
+    }
+    
+    init() {
+        self.forcedDarkMode = UserDefaults.standard.bool(forKey: "forcedDarkMode")
+    }
+}

@@ -25,8 +25,8 @@ struct AllPiecesDetailView: View {
                 }
                 
                 HStack {
-                    RectangleView(color: Color.blue, title: "Practice Time", subtitle: "\(song.timesPracticed) Hour")
-                    RectangleView(color: Color.red, title: "Times Practiced", subtitle: "5 Times")
+                    RectangleView(color: Color.blue, title: "Practice Time", subtitle: "\(song.hourPracticed) Hour")
+                    RectangleView(color: Color.red, title: "Times Practiced", subtitle: "\(song.timesPracticed) Times")
                 }
                 
                 HStack {
@@ -45,6 +45,6 @@ struct AllPiecesDetailView: View {
 
 struct AllPiecesDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        AllPiecesDetailView(song: songData[1])
+        AllPiecesDetailView(song: Song(title: "", composer: "", imageName: "", timesPracticed: 0, hourPracticed: 0.1))
     }
 }

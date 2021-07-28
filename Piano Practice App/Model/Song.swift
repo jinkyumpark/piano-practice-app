@@ -8,13 +8,14 @@
 import Foundation
 import SwiftUI
 
-struct Song: Hashable, Codable {
+struct Song: Codable, Identifiable, Hashable {
     var id = UUID()
     
     var title: String
     var composer: String
     var imageName: String
     var timesPracticed: Int
+    var hourPracticed: Double
 }
 
 let imageNameData = ["Custom":"Defalut","A. Vivaldi":"a-vivaldi", "C. Debussy":"c-debussy", "C. Sanin-Saens":"c-saint-saens",
@@ -34,24 +35,5 @@ func getImageName(composer: String) -> String {
     }
 }
 
-var songData: [Song] = [
-    Song(title: "Toccata and Fugue in D minor", composer: "J.S. Bach", imageName: "j-s-bach", timesPracticed: 1),
-    Song(title: "Ballade No.1", composer: "F. F. Chopin", imageName: "f-chopin", timesPracticed: 2),
-    Song(title: "Dreams of Love No.3", composer: "F. Listz", imageName: "f-listz", timesPracticed: 3),
-    
-    Song(title: "Für Elise", composer: "Ludwig Van Beethoven", imageName: "l-v-beethoven", timesPracticed: 4),
-    Song(title: "Messiah", composer: "Frideric Handel", imageName: "f-handel", timesPracticed: 5),
-    Song(title: "Serenade No. 13 in G Major, K 525", composer: "Wolfgang Amadeus Mozart", imageName: "w-a-mozart", timesPracticed: 5),
-    Song(title: "Waltz Op.25 No. 1", composer: "F. F. Chopin", imageName: "f-chopin", timesPracticed: 5),
-    
-    Song(title: "Turkish March", composer: "W. A. Mozart", imageName: "w-a-mozart", timesPracticed: 6)
-]
 
-var totalPracticeTime: Int = 0
-
-func updateTotalPracticeTime() {
-    totalPracticeTime = 0
-    for songs in songData {
-        totalPracticeTime += songs.timesPracticed
-    }
-}
+let dummySong = [Song(title: "Add Songs to Start!", composer: "Add Songs in 'All Pieces'", imageName: "default", timesPracticed: 0, hourPracticed: 0)]

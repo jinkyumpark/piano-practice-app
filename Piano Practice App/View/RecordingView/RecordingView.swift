@@ -28,12 +28,12 @@ struct RecordingView: View {
             ZStack {
             ScrollView {
                 VStack {
-                SongView(song: songData[3])
+                    SongView(song: dummySong[0])
                 
                 RecordingPieceView(isPlaying: $isPlaying, recordingPlay: $recordingPlay, isEditing: $isEditing)
                 RecordingPieceView(isPlaying: $isPlaying, recordingPlay: $recordingPlay, isEditing: $isEditing)
                     
-                SongView(song: songData[0])
+                    SongView(song: dummySong[0])
                     
                 RecordingPieceView(isPlaying: $isPlaying, recordingPlay: $recordingPlay, isEditing: $isEditing)
 

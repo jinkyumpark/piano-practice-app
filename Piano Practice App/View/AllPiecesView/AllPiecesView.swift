@@ -10,19 +10,20 @@ import SwiftUI
 struct AllPiecesView: View {
     
     @State var isPresented = false
-    @State var songs = songData
+    @ObservedObject var song = SongData()
     
     var body: some View {
         ZStack {
             NavigationView {
                 List() {
-                    ForEach(songs, id: \.id) { song in
+                    ForEach(song.songData) { song in
                         NavigationLink(
                             destination: AllPiecesDetailView(song: song),
                             label: {
                                 SongView(song: song)
                             })
                     }
+                    .onDelete(perform: deleteRows)
                 }
                 .navigationTitle("All Pieces")
             }
@@ -48,6 +49,10 @@ struct AllPiecesView: View {
                 }
             }
         }
+    }
+    
+    func deleteRows(at offsets: IndexSet) {
+        song.songData.remove(atOffsets: offsets)
     }
 }
 

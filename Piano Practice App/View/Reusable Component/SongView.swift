@@ -21,14 +21,15 @@ struct SongView: View {
             
             VStack(alignment: .center, spacing: 0) {
                 ZStack {
-                    Text("temptemptempte")
-                        .font(.largeTitle)
-                        .opacity(0)
-                    
                     Text(song.title)
                         .font(.title)
                         .lineLimit(2)
-                        .minimumScaleFactor(0.8)
+                        .minimumScaleFactor(0.6)
+                    
+                    Text("                                 ")
+                        .font(.largeTitle)
+                        .opacity(0)
+
                 }
                 
                 Text(song.composer)
@@ -41,6 +42,6 @@ struct SongView: View {
 
 struct SongView_Previews: PreviewProvider {
     static var previews: some View {
-        SongView(song: songData[3])
+        SongView(song: dummySong[0])
     }
 }

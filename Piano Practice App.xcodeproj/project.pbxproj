@@ -9,25 +9,30 @@
 /* Begin PBXBuildFile section */
 		1B035A122699BFFF00DA0E46 /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B035A112699BFFF00DA0E46 /* Recording.swift */; };
 		1B226B2826994479004774CF /* PracticePieceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B226B2726994479004774CF /* PracticePieceView.swift */; };
-		1B226B2A2699A177004774CF /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B226B292699A177004774CF /* SwiftUIView.swift */; };
 		1B3413A6269B6E3800AD63BA /* RecordingPieceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3413A5269B6E3800AD63BA /* RecordingPieceView.swift */; };
 		1B38725726957C4800A6A203 /* AllPiecesDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B38725626957C4800A6A203 /* AllPiecesDetailView.swift */; };
 		1B38725A26957EBB00A6A203 /* SongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B38725926957EBB00A6A203 /* SongView.swift */; };
 		1B38725D2695A9CC00A6A203 /* AllPiecesAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B38725C2695A9CC00A6A203 /* AllPiecesAddView.swift */; };
 		1B3872652695EDD100A6A203 /* PracticePiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3872642695EDD100A6A203 /* PracticePiece.swift */; };
 		1B38726726960F8200A6A203 /* RectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B38726626960F8200A6A203 /* RectangleView.swift */; };
-		1BB79DC92698357F006E8F05 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB79DC82698357F006E8F05 /* ViewModel.swift */; };
 		1BB79DCB269844E5006E8F05 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB79DCA269844E5006E8F05 /* Setting.swift */; };
 		1BC84BDB2693FF3C00684DA7 /* PracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC84BDA2693FF3C00684DA7 /* PracticeView.swift */; };
 		1BC84BDD2693FFB400684DA7 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC84BDC2693FFB400684DA7 /* Song.swift */; };
 		1BC84BDF2694768300684DA7 /* RecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC84BDE2694768300684DA7 /* RecordingView.swift */; };
 		1BDF85CF25D7F4C700ABE572 /* Piano_Practice_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDF85CE25D7F4C700ABE572 /* Piano_Practice_AppApp.swift */; };
-		1BDF85D125D7F4C700ABE572 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDF85D025D7F4C700ABE572 /* ContentView.swift */; };
+		1BDF85D125D7F4C700ABE572 /* Pianoman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDF85D025D7F4C700ABE572 /* Pianoman.swift */; };
 		1BDF85D325D7F4C800ABE572 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BDF85D225D7F4C800ABE572 /* Assets.xcassets */; };
 		1BDF85D625D7F4C800ABE572 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BDF85D525D7F4C800ABE572 /* Preview Assets.xcassets */; };
 		1BDF85FD25D7F50F00ABE572 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDF85FC25D7F50F00ABE572 /* HomeView.swift */; };
 		1BDF860525D7F64400ABE572 /* AllPiecesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDF860425D7F64400ABE572 /* AllPiecesView.swift */; };
 		1BDF860A25D7F6DA00ABE572 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDF860925D7F6DA00ABE572 /* SettingView.swift */; };
+		1BF7777926A8396B00F99EC0 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF7777826A8396A00F99EC0 /* Queue.swift */; };
+		1BF7777B26A951CA00F99EC0 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF7777A26A951CA00F99EC0 /* AudioRecorder.swift */; };
+		1BF7777D26A9526C00F99EC0 /* AudioRecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF7777C26A9526C00F99EC0 /* AudioRecordingView.swift */; };
+		1BF7777F26A9537600F99EC0 /* RecordingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF7777E26A9537600F99EC0 /* RecordingList.swift */; };
+		1BF7778126A953AC00F99EC0 /* MainRecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF7778026A953AC00F99EC0 /* MainRecordingView.swift */; };
+		1BF777D926AC650700F99EC0 /* RectanglePlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF777D826AC650700F99EC0 /* RectanglePlayView.swift */; };
+		1BF7780126AFCC4D00F99EC0 /* SongModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF7780026AFCC4D00F99EC0 /* SongModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,21 +55,19 @@
 /* Begin PBXFileReference section */
 		1B035A112699BFFF00DA0E46 /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
 		1B226B2726994479004774CF /* PracticePieceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticePieceView.swift; sourceTree = "<group>"; };
-		1B226B292699A177004774CF /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		1B3413A5269B6E3800AD63BA /* RecordingPieceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingPieceView.swift; sourceTree = "<group>"; };
 		1B38725626957C4800A6A203 /* AllPiecesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPiecesDetailView.swift; sourceTree = "<group>"; };
 		1B38725926957EBB00A6A203 /* SongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongView.swift; sourceTree = "<group>"; };
 		1B38725C2695A9CC00A6A203 /* AllPiecesAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPiecesAddView.swift; sourceTree = "<group>"; };
 		1B3872642695EDD100A6A203 /* PracticePiece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticePiece.swift; sourceTree = "<group>"; };
 		1B38726626960F8200A6A203 /* RectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleView.swift; sourceTree = "<group>"; };
-		1BB79DC82698357F006E8F05 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		1BB79DCA269844E5006E8F05 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		1BC84BDA2693FF3C00684DA7 /* PracticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeView.swift; sourceTree = "<group>"; };
 		1BC84BDC2693FFB400684DA7 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		1BC84BDE2694768300684DA7 /* RecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingView.swift; sourceTree = "<group>"; };
 		1BDF85CB25D7F4C700ABE572 /* Piano Practice App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Piano Practice App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BDF85CE25D7F4C700ABE572 /* Piano_Practice_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piano_Practice_AppApp.swift; sourceTree = "<group>"; };
-		1BDF85D025D7F4C700ABE572 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1BDF85D025D7F4C700ABE572 /* Pianoman.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pianoman.swift; sourceTree = "<group>"; };
 		1BDF85D225D7F4C800ABE572 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1BDF85D525D7F4C800ABE572 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1BDF85D725D7F4C800ABE572 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -73,6 +76,13 @@
 		1BDF85FC25D7F50F00ABE572 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		1BDF860425D7F64400ABE572 /* AllPiecesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPiecesView.swift; sourceTree = "<group>"; };
 		1BDF860925D7F6DA00ABE572 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		1BF7777826A8396A00F99EC0 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		1BF7777A26A951CA00F99EC0 /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
+		1BF7777C26A9526C00F99EC0 /* AudioRecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecordingView.swift; sourceTree = "<group>"; };
+		1BF7777E26A9537600F99EC0 /* RecordingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingList.swift; sourceTree = "<group>"; };
+		1BF7778026A953AC00F99EC0 /* MainRecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRecordingView.swift; sourceTree = "<group>"; };
+		1BF777D826AC650700F99EC0 /* RectanglePlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectanglePlayView.swift; sourceTree = "<group>"; };
+		1BF7780026AFCC4D00F99EC0 /* SongModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +126,7 @@
 				1B38725926957EBB00A6A203 /* SongView.swift */,
 				1B226B2726994479004774CF /* PracticePieceView.swift */,
 				1B38726626960F8200A6A203 /* RectangleView.swift */,
-				1B226B292699A177004774CF /* SwiftUIView.swift */,
+				1BF777D826AC650700F99EC0 /* RectanglePlayView.swift */,
 			);
 			path = "Reusable Component";
 			sourceTree = "<group>";
@@ -124,7 +134,7 @@
 		1B38725B26957F8E00A6A203 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1BDF85D025D7F4C700ABE572 /* ContentView.swift */,
+				1BDF85D025D7F4C700ABE572 /* Pianoman.swift */,
 				1BDF85FC25D7F50F00ABE572 /* HomeView.swift */,
 				1BC84BDA2693FF3C00684DA7 /* PracticeView.swift */,
 				1B3413A4269B6DFB00AD63BA /* RecordingView */,
@@ -141,7 +151,8 @@
 				1BC84BDC2693FFB400684DA7 /* Song.swift */,
 				1B3872642695EDD100A6A203 /* PracticePiece.swift */,
 				1BB79DCA269844E5006E8F05 /* Setting.swift */,
-				1BB79DC82698357F006E8F05 /* ViewModel.swift */,
+				1BF7777826A8396A00F99EC0 /* Queue.swift */,
+				1BF7778226AA376400F99EC0 /* Recording */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -183,6 +194,7 @@
 				1BDF85D725D7F4C800ABE572 /* Info.plist */,
 				1B38725B26957F8E00A6A203 /* View */,
 				1BB79DC22696D09B006E8F05 /* Model */,
+				1BF777FD26AFCC3000F99EC0 /* ViewModel */,
 			);
 			path = "Piano Practice App";
 			sourceTree = "<group>";
@@ -193,6 +205,25 @@
 				1BDF85D525D7F4C800ABE572 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1BF7778226AA376400F99EC0 /* Recording */ = {
+			isa = PBXGroup;
+			children = (
+				1BF7777A26A951CA00F99EC0 /* AudioRecorder.swift */,
+				1BF7777C26A9526C00F99EC0 /* AudioRecordingView.swift */,
+				1BF7777E26A9537600F99EC0 /* RecordingList.swift */,
+				1BF7778026A953AC00F99EC0 /* MainRecordingView.swift */,
+			);
+			path = Recording;
+			sourceTree = "<group>";
+		};
+		1BF777FD26AFCC3000F99EC0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1BF7780026AFCC4D00F99EC0 /* SongModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,18 +357,23 @@
 			files = (
 				1B38725726957C4800A6A203 /* AllPiecesDetailView.swift in Sources */,
 				1BC84BDD2693FFB400684DA7 /* Song.swift in Sources */,
-				1B226B2A2699A177004774CF /* SwiftUIView.swift in Sources */,
+				1BF7777B26A951CA00F99EC0 /* AudioRecorder.swift in Sources */,
 				1BDF85FD25D7F50F00ABE572 /* HomeView.swift in Sources */,
 				1BC84BDB2693FF3C00684DA7 /* PracticeView.swift in Sources */,
+				1BF7777D26A9526C00F99EC0 /* AudioRecordingView.swift in Sources */,
+				1BF777D926AC650700F99EC0 /* RectanglePlayView.swift in Sources */,
 				1B38725D2695A9CC00A6A203 /* AllPiecesAddView.swift in Sources */,
 				1BB79DCB269844E5006E8F05 /* Setting.swift in Sources */,
 				1BDF860A25D7F6DA00ABE572 /* SettingView.swift in Sources */,
+				1BF7777926A8396B00F99EC0 /* Queue.swift in Sources */,
+				1BF7777F26A9537600F99EC0 /* RecordingList.swift in Sources */,
 				1B3413A6269B6E3800AD63BA /* RecordingPieceView.swift in Sources */,
-				1BDF85D125D7F4C700ABE572 /* ContentView.swift in Sources */,
+				1BDF85D125D7F4C700ABE572 /* Pianoman.swift in Sources */,
 				1B38726726960F8200A6A203 /* RectangleView.swift in Sources */,
 				1BC84BDF2694768300684DA7 /* RecordingView.swift in Sources */,
-				1BB79DC92698357F006E8F05 /* ViewModel.swift in Sources */,
+				1BF7778126A953AC00F99EC0 /* MainRecordingView.swift in Sources */,
 				1B38725A26957EBB00A6A203 /* SongView.swift in Sources */,
+				1BF7780126AFCC4D00F99EC0 /* SongModel.swift in Sources */,
 				1B035A122699BFFF00DA0E46 /* Recording.swift in Sources */,
 				1BDF860525D7F64400ABE572 /* AllPiecesView.swift in Sources */,
 				1B226B2826994479004774CF /* PracticePieceView.swift in Sources */,

@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct Piano_Practice_AppApp: App {
+    @StateObject var settings = Settings()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Pianoman()
+                .environmentObject(settings)
         }
     }
 }

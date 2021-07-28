@@ -9,17 +9,19 @@ import SwiftUI
 
 struct SettingView: View {
     
-    @Binding var isDark: Bool
     @Binding var primaryColor: Color
     @Binding var selectedPracticePiece: PracticePiece
+    @State var tapticFeedback: Bool = UserDefaults.standard.object(forKey: "tapticFeedback") as? Bool ?? true
+    
+    @StateObject var settings = Settings()
 
     var body: some View {
         NavigationView {
             Form {
                 Section(header: Text("Appearecne")) {
-                    Toggle("Forced Dark Mode", isOn: $isDark)
-                        .onChange(of: isDark) { dark in
-                            UserDefaults.standard.set(dark, forKey: "forcedDarkModeSetting")
+                    Toggle("Forced Dark Mode", isOn: $settings.forcedDarkMode)
+                        .onChange(of: settings.forcedDarkMode) { _ in
+                            settings.forcedDarkMode.toggle()
                         }
                                         
                     Picker("Primary Color", selection: $primaryColor) {
@@ -50,9 +52,13 @@ struct SettingView: View {
                     }
                 }
                 
-//                Section(header: Text("Manage Content")) {
-//
-//                }
+                Section(header: Text("General")) {
+                    Toggle("Practice Shape Taptic", isOn: $tapticFeedback)
+                        .onChange(of: tapticFeedback) { taptic in
+                            UserDefaults.standard.set(taptic, forKey: "tapticFeedback")
+                        }
+                        
+                }
                 
                 Section(header: Text("Information")) {
                     HStack {
@@ -72,7 +78,7 @@ struct SettingView: View {
 
 struct SettingView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingView(isDark: .constant(false), primaryColor: .constant(Color.red), selectedPracticePiece: .constant(listOfPracticePiece[0]))
+        SettingView(primaryColor: .constant(Color.red), selectedPracticePiece: .constant(listOfPracticePiece[0]))
             .preferredColorScheme(.light)
     }
 }

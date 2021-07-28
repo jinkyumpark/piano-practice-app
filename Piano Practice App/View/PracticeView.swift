@@ -12,23 +12,37 @@ struct PracticeView: View {
     
     @State var practiceSong: Song
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
     @State var currentTime: Int = 0
-    @State var isOn: Bool
+    @State var timerStartAutomatic: Bool
     @State var isRecording: Bool = false
     @Binding var shape: PracticePiece
-    @State var showingAlert = false
+    @State var showingRecordingAlert = false
+    @State var showingCancelAlert = false
     
-    @Binding var isDark: Bool
+//    @Binding var isDark: Bool
     
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.colorScheme) var colorScheme
+    
+    @StateObject var song = SongData()
 
 
     var body: some View {
         NavigationView {
             VStack {
-                
-                SongView(song: practiceSong)
+//                SongView(song: practiceSong)
+                Picker(selection: $practiceSong, label: SongView(song: practiceSong)) {
+                    ForEach(song.songData) { song in
+                        SongView(song: song)
+                    }
+                }
+                .pickerStyle(MenuPickerStyle())
+                .foregroundColor(.black)
+                .onChange(of: practiceSong, perform: { selectedSong in
+                    self.song.mainSelectedSong = selectedSong
+                })
+                    
 
                 HStack {
                     PracticePieceView(imageName: shape.imageName, practiceSong: practiceSong)
@@ -52,7 +66,7 @@ struct PracticeView: View {
                 Text("\(currentTime/60)m \(currentTime%60)s")
                     .font(.system(size: 75))
                     .onReceive(timer) { _ in
-                        if isOn {
+                        if timerStartAutomatic {
                             currentTime += 1
                         }
                     }
@@ -63,7 +77,7 @@ struct PracticeView: View {
                     Button(action: {
                         isRecording.toggle()
                         if !isRecording {
-                            showingAlert = true
+                            showingRecordingAlert = true
                         }
                     }, label: {
                         Image(systemName: isRecording ? "stop.circle.fill":"record.circle")
@@ -78,7 +92,7 @@ struct PracticeView: View {
 
 
                     })
-                        .alert(isPresented: $showingAlert) {
+                        .alert(isPresented: $showingRecordingAlert) {
                             Alert(title: Text("Recording"),
                                   message: Text("Do you want to save the recording?"),
                                   primaryButton: .default(Text("Save"), action: {
@@ -88,11 +102,11 @@ struct PracticeView: View {
                         }
                     
                     Button(action: {
-                        isOn.toggle()
+                        timerStartAutomatic.toggle()
                     }, label: {
-                        Text(isOn ? "Pause":"Resume")
+                        Text(timerStartAutomatic ? "Pause":"Resume")
                             .frame(width: 150, height: 75)
-                            .background(isOn ? Color.red:Color.green)
+                            .background(timerStartAutomatic ? Color.red:Color.green)
                             .font(.largeTitle)
                             .foregroundColor(.white)
                             .cornerRadius(30)
@@ -102,15 +116,16 @@ struct PracticeView: View {
                 Spacer()
                 
             }
-            .navigationTitle("Practice")
-            .toolbar {
-                Button("Save") {
-                    presentationMode.wrappedValue.dismiss()
-                }
+            .navigationTitle("Practice : \(practiceSong.timesPracticed)")
+            .navigationBarItems(trailing: Button("Unsave") {
+                showingCancelAlert.toggle()
             }
+            .alert(isPresented: $showingCancelAlert) {
+                Alert(title: Text("Are you Sure to Dismiss All the Progress?"), message: Text("This Will Unsave All the Changes You Have Made"), primaryButton: .default(Text("OK"), action: {
+                    presentationMode.wrappedValue.dismiss()
+                }), secondaryButton: .cancel())
+            })
         }
-        .environment(\.colorScheme, isDark ? .dark : colorScheme)
-
     }
 }
 
@@ -118,6 +133,6 @@ struct PracticeView: View {
 
 struct PracticeView_Previews: PreviewProvider {
     static var previews: some View {
-        PracticeView(practiceSong: songData[3], currentTime: 0, isOn: false, shape: .constant(listOfPracticePiece[3]), isDark: .constant(true))
+        PracticeView(practiceSong: dummySong[0], currentTime: 0, timerStartAutomatic: false, shape: .constant(listOfPracticePiece[3]))
     }
 }

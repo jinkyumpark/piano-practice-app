@@ -14,16 +14,17 @@ struct PracticePieceView: View {
     
     var practiceSong: Song
 
-
     var body: some View {
         
         Button(action: {
             if count == 0 {
                 imageName = imageName + ".fill"
                 count += 1
-                //practiceSong.timesPracticed += 1
-                let impactMed = UIImpactFeedbackGenerator(style: .heavy)
-                impactMed.impactOccurred()
+//                practiceSong.timesPracticed += 1
+                if UserDefaults.standard.object(forKey: "tapticFeedback") as? Bool ?? true {
+                    let impactMed = UIImpactFeedbackGenerator(style: .heavy)
+                    impactMed.impactOccurred()
+                }
             }
         }, label: {
             Image(systemName: imageName)

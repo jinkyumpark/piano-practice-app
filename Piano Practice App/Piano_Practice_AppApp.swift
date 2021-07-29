@@ -14,7 +14,8 @@ struct Piano_Practice_AppApp: App {
     var body: some Scene {
         WindowGroup {
             Pianoman()
-                .environmentObject(settings)
+                .environmentObject(SongModel())
+                .environmentObject(Settings())
         }
     }
 }

@@ -21,8 +21,8 @@ struct Pianoman: View {
  
     @Environment(\.colorScheme) var systemColorScheme
     
-    @StateObject var songs = SongData()
-    @StateObject var settings = Settings()
+    @EnvironmentObject var songs: SongModel
+    @EnvironmentObject var settings: Settings
 
     var body: some View {
         TabView {
@@ -58,7 +58,7 @@ struct Pianoman: View {
                 }
         }
         .accentColor(primaryColor)
-        .environment(\.colorScheme, settings.forcedDarkMode ? .dark : systemColorScheme)
+//        .environment(\.colorScheme, settings.forcedDarkMode ? .dark : systemColorScheme)
     }
 }
 

@@ -10,7 +10,7 @@ import SwiftUI
 struct AllPiecesView: View {
     
     @State var isPresented = false
-    @ObservedObject var song = SongData()
+    @EnvironmentObject var song: SongModel
     
     var body: some View {
         ZStack {

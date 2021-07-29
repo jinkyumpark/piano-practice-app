@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SongData: ObservableObject {
+class SongModel: ObservableObject {
     
     @Published var songData = [Song]() {
         didSet {

@@ -16,7 +16,7 @@ struct HomeView: View {
     @Environment(\.colorScheme) var systemColorScheme
     @State var songIndex: Int = 0
     
-    @StateObject var song = SongData()
+    @EnvironmentObject var song: SongModel
     
     var body: some View {
         NavigationView {
@@ -27,9 +27,9 @@ struct HomeView: View {
                     }
                 }
                 .pickerStyle(MenuPickerStyle())
-                .onChange(of: song.mainSelectedSong, perform: { selectedSong in
-                    song.mainSelectedSong = selectedSong
-                })
+//                .onChange(of: song.mainSelectedSong, perform: { selectedSong in
+//                    song.mainSelectedSong = selectedSong
+//                })
                 
                 
                 Spacer()
@@ -74,5 +74,6 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView(practicePiece: .constant(listOfPracticePiece[0]), primaryColor: .constant(Color.red))
+            .environmentObject(SongModel())
     }
 }

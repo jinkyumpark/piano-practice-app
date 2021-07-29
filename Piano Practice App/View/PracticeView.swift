@@ -26,7 +26,8 @@ struct PracticeView: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.colorScheme) var colorScheme
     
-    @StateObject var song = SongData()
+    @EnvironmentObject var song: SongModel
+    @EnvironmentObject var setting: Settings
 
 
     var body: some View {
@@ -90,8 +91,6 @@ struct PracticeView: View {
                                 RoundedRectangle(cornerRadius: 30)
                                     .stroke(colorScheme == .light ? Color.gray:Color.white, lineWidth: 5)
                             )
-
-
                     })
                         .alert(isPresented: $showingRecordingAlert) {
                             Alert(title: Text("Recording"),
@@ -135,6 +134,7 @@ struct PracticeView: View {
             }
         }
     }
+
 }
 
 

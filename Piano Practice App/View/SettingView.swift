@@ -13,7 +13,7 @@ struct SettingView: View {
     @Binding var selectedPracticePiece: PracticePiece
     @State var tapticFeedback: Bool = UserDefaults.standard.object(forKey: "tapticFeedback") as? Bool ?? true
     
-    @StateObject var settings = Settings()
+    @EnvironmentObject var settings: Settings
 
     var body: some View {
         NavigationView {

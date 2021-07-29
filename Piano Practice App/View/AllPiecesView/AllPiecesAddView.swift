@@ -13,7 +13,7 @@ struct AllPiecesAddView: View {
     @State var composer: String = "Composer"
     @Environment(\.presentationMode) var presentationMode
     
-    @ObservedObject var song = SongData()
+    @EnvironmentObject var song: SongModel
     
 
     let formatter: NumberFormatter = {

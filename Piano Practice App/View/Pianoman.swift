@@ -58,7 +58,7 @@ struct Pianoman: View {
                 }
         }
         .accentColor(primaryColor)
-//        .environment(\.colorScheme, settings.forcedDarkMode ? .dark : systemColorScheme)
+        .environment(\.colorScheme, settings.forcedDarkMode ? .dark : systemColorScheme)
     }
 }
 

@@ -20,9 +20,6 @@ struct SettingView: View {
             Form {
                 Section(header: Text("Appearecne")) {
                     Toggle("Forced Dark Mode", isOn: $settings.forcedDarkMode)
-                        .onChange(of: settings.forcedDarkMode) { _ in
-                            settings.forcedDarkMode.toggle()
-                        }
                                         
                     Picker("Primary Color", selection: $primaryColor) {
                         ForEach(Array(primaryColorList.keys), id: \.self) { color in

@@ -22,7 +22,6 @@
 		1BDF85CF25D7F4C700ABE572 /* Piano_Practice_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDF85CE25D7F4C700ABE572 /* Piano_Practice_AppApp.swift */; };
 		1BDF85D125D7F4C700ABE572 /* Pianoman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDF85D025D7F4C700ABE572 /* Pianoman.swift */; };
 		1BDF85D325D7F4C800ABE572 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BDF85D225D7F4C800ABE572 /* Assets.xcassets */; };
-		1BDF85D625D7F4C800ABE572 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BDF85D525D7F4C800ABE572 /* Preview Assets.xcassets */; };
 		1BDF85FD25D7F50F00ABE572 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDF85FC25D7F50F00ABE572 /* HomeView.swift */; };
 		1BDF860525D7F64400ABE572 /* AllPiecesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDF860425D7F64400ABE572 /* AllPiecesView.swift */; };
 		1BDF860A25D7F6DA00ABE572 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDF860925D7F6DA00ABE572 /* SettingView.swift */; };
@@ -69,7 +68,6 @@
 		1BDF85CE25D7F4C700ABE572 /* Piano_Practice_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piano_Practice_AppApp.swift; sourceTree = "<group>"; };
 		1BDF85D025D7F4C700ABE572 /* Pianoman.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pianoman.swift; sourceTree = "<group>"; };
 		1BDF85D225D7F4C800ABE572 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1BDF85D525D7F4C800ABE572 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1BDF85D725D7F4C800ABE572 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1BDF85DC25D7F4C800ABE572 /* Piano Practice AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Piano Practice AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BDF85E725D7F4C800ABE572 /* Piano Practice AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Piano Practice AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,7 +186,6 @@
 		1BDF85CD25D7F4C700ABE572 /* Piano Practice App */ = {
 			isa = PBXGroup;
 			children = (
-				1BDF85D425D7F4C800ABE572 /* Preview Content */,
 				1BDF85CE25D7F4C700ABE572 /* Piano_Practice_AppApp.swift */,
 				1BDF85D225D7F4C800ABE572 /* Assets.xcassets */,
 				1BDF85D725D7F4C800ABE572 /* Info.plist */,
@@ -197,14 +194,6 @@
 				1BF777FD26AFCC3000F99EC0 /* ViewModel */,
 			);
 			path = "Piano Practice App";
-			sourceTree = "<group>";
-		};
-		1BDF85D425D7F4C800ABE572 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				1BDF85D525D7F4C800ABE572 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		1BF7778226AA376400F99EC0 /* Recording */ = {
@@ -329,7 +318,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BDF85D625D7F4C800ABE572 /* Preview Assets.xcassets in Resources */,
 				1BDF85D325D7F4C800ABE572 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,32 +8,32 @@
 import SwiftUI
 
 struct Pianoman: View {
+    // TODO : App Crash when sheet is presented
+    // TODO : Picker doesn't pick up mainSelectedSong
+    // TODO : Recording features
+    // TODO : Save user song data to coreData
+    // TODO : Move settings to viewmodel
+    // TODO : Update practiceHour/time accordingly
+    // TODO : Add custom textfield to addsongview
+    // TODO : Select classical/anime
+    // TODO : Color don't appear in settings
     
     // List of Data to Store Permenantly
-//    @State var forcedDarkMode: Bool = UserDefaults.standard.bool(forKey: "forcedDarkModeSetting")
-    
     @State var primaryColor: Color = primaryColorList.someKey(forValue: UserDefaults.standard.string(forKey: "primaryColor")!)! 
-    
-    @State var selectedPracticePiece: PracticePiece = PracticePiece(
-        name: UserDefaults.standard.string(forKey: "practicePieceName")!,
-        imageName: UserDefaults.standard.string(forKey: "practicePieceImageName")!)
-//    @State var selectedPracticePiece: PracticePiece = UserDefaults.standard.object(forKey: "practicePiece") as? PracticePiece ?? listOfPracticePiece[0]
- 
+     
     @Environment(\.colorScheme) var systemColorScheme
-    
-    @EnvironmentObject var songs: SongModel
+    @EnvironmentObject var song: SongModel
     @EnvironmentObject var settings: Settings
 
     var body: some View {
         TabView {
-            HomeView(practicePiece: $selectedPracticePiece, primaryColor: $primaryColor)
+            HomeView()
                 .tabItem {
                     Image(systemName: "house.fill")
                     Text("Home")
                 }
             
-            PracticeView(practiceSong: songs.songData.isEmpty ? dummySong[0] : songs.mainSelectedSong, timerStartAutomatic: false,
-                         shape: $selectedPracticePiece, showingButtons: false)
+            PracticeView(practiceSong: song.mainSelectedSong, timerStartAutomatic: false, showingButtons: false)
                 .tabItem {
                     Image(systemName: "pencil")
                     Text("Practice")
@@ -51,7 +51,7 @@ struct Pianoman: View {
                     Text("All Pieces")
                 }
             
-            SettingView(primaryColor: $primaryColor, selectedPracticePiece: $selectedPracticePiece)
+            SettingView(primaryColor: $primaryColor)
                 .tabItem {
                     Image(systemName: "gearshape.fill")
                     Text("Preferences")

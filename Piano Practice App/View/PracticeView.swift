@@ -9,14 +9,13 @@ import SwiftUI
 
 
 struct PracticeView: View {
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     @State var practiceSong: Song
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     @State var currentTime: Int = 0
     @State var timerStartAutomatic: Bool
     @State var isRecording: Bool = false
-    @Binding var shape: PracticePiece
     @State var showingRecordingAlert = false
     @State var showingCancelAlert = false
     @State var showingButtons: Bool
@@ -24,43 +23,43 @@ struct PracticeView: View {
 //    @Binding var isDark: Bool
     
     @Environment(\.presentationMode) var presentationMode
-    @Environment(\.colorScheme) var colorScheme
+    @Environment(\.colorScheme) var systemColorScheme
     
     @EnvironmentObject var song: SongModel
-    @EnvironmentObject var setting: Settings
+    @EnvironmentObject var settings: Settings
 
 
     var body: some View {
         NavigationView {
             VStack {
 //                SongView(song: practiceSong)
-                Picker(selection: $practiceSong, label: SongView(song: practiceSong)) {
+                Picker(selection: $song.mainSelectedSong, label: SongView(song: song.mainSelectedSong)) {
                     ForEach(song.songData) { song in
                         SongView(song: song)
                     }
                 }
                 .pickerStyle(MenuPickerStyle())
-                .foregroundColor(.black)
-                .onChange(of: practiceSong, perform: { selectedSong in
-                    self.song.mainSelectedSong = selectedSong
-                })
-                    
+                .foregroundColor(settings.forcedDarkMode ? .white : systemColorScheme == .dark ? .white : .black)
+//                .onChange(of: song.mainSelectedSong, perform: { selectedSong in
+//                    self.song.mainSelectedSong = selectedSong
+//                })
+
 
                 HStack {
-                    PracticePieceView(imageName: shape.imageName, practiceSong: practiceSong)
-                    PracticePieceView(imageName: shape.imageName, practiceSong: practiceSong)
-                    PracticePieceView(imageName: shape.imageName, practiceSong: practiceSong)
-                    PracticePieceView(imageName: shape.imageName, practiceSong: practiceSong)
-                    PracticePieceView(imageName: shape.imageName, practiceSong: practiceSong)
+                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: song.mainSelectedSong)
+                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: song.mainSelectedSong)
+                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: song.mainSelectedSong)
+                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: song.mainSelectedSong)
+                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: song.mainSelectedSong)
                 }
                 .padding(.bottom)
                 
                 HStack {
-                    PracticePieceView(imageName: shape.imageName, practiceSong: practiceSong)
-                    PracticePieceView(imageName: shape.imageName, practiceSong: practiceSong)
-                    PracticePieceView(imageName: shape.imageName, practiceSong: practiceSong)
-                    PracticePieceView(imageName: shape.imageName, practiceSong: practiceSong)
-                    PracticePieceView(imageName: shape.imageName, practiceSong: practiceSong)
+                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: song.mainSelectedSong)
+                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: song.mainSelectedSong)
+                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: song.mainSelectedSong)
+                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: song.mainSelectedSong)
+                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: song.mainSelectedSong)
                 }
             
                 Spacer()
@@ -79,7 +78,7 @@ struct PracticeView: View {
                     Button(action: {
                         isRecording.toggle()
                         if !isRecording {
-                            showingRecordingAlert = true
+                            showingRecordingAlert.toggle()
                         }
                     }, label: {
                         Image(systemName: isRecording ? "stop.circle.fill":"record.circle")
@@ -89,7 +88,7 @@ struct PracticeView: View {
 //                            .background(colorScheme == .light ? Color.white:Color.black)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 30)
-                                    .stroke(colorScheme == .light ? Color.gray:Color.white, lineWidth: 5)
+                                    .stroke(systemColorScheme == .light ? Color.gray:Color.white, lineWidth: 5)
                             )
                     })
                         .alert(isPresented: $showingRecordingAlert) {
@@ -116,7 +115,7 @@ struct PracticeView: View {
                 Spacer()
                 
             }
-            .navigationTitle("Practice : \(practiceSong.timesPracticed)")
+            .navigationTitle("Practice : \(song.mainSelectedSong.timesPracticed)")
             .navigationBarItems(leading: Button(action: {
                 showingCancelAlert.toggle()
             }, label: {
@@ -126,21 +125,20 @@ struct PracticeView: View {
                 }, label: {
                     Text(showingButtons ? "Save" : "")
             }))
-            
             .alert(isPresented: $showingCancelAlert) {
                 Alert(title: Text("Are you Sure to Dismiss All the Progress?"), message: Text("This Will Unsave All the Changes You Have Made"), primaryButton: .default(Text("OK"), action: {
                     presentationMode.wrappedValue.dismiss()
                 }), secondaryButton: .cancel())
             }
         }
+        .environment(\.colorScheme, settings.forcedDarkMode ? .dark : systemColorScheme)
     }
-
 }
 
 
 
 struct PracticeView_Previews: PreviewProvider {
     static var previews: some View {
-        PracticeView(practiceSong: dummySong[0], currentTime: 0, timerStartAutomatic: false, shape: .constant(listOfPracticePiece[3]), showingButtons: true)
+        PracticeView(practiceSong: dummySong[0], currentTime: 0, timerStartAutomatic: false, showingButtons: true)
     }
 }

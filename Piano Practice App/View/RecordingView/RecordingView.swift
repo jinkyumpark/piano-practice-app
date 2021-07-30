@@ -8,7 +8,6 @@
 import SwiftUI
 import AVKit
 
-
 struct RecordingView: View {
     
     @State var recordingPlay:Double = 0

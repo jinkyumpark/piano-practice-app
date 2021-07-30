@@ -48,7 +48,6 @@ class SongModel: ObservableObject {
         }
 
         self.songData = [Song(title: "Toccata and Fugue in D minor", composer: "J.S. Bach", imageName: "j-s-bach", timesPracticed: 0, hourPracticed: 0.1)]
-        self.mainSelectedSong = dummySong[0]
         
     }
 //    [

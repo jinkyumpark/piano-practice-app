@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B035A122699BFFF00DA0E46 /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B035A112699BFFF00DA0E46 /* Recording.swift */; };
 		1B226B2826994479004774CF /* PracticePieceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B226B2726994479004774CF /* PracticePieceView.swift */; };
 		1B3413A6269B6E3800AD63BA /* RecordingPieceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3413A5269B6E3800AD63BA /* RecordingPieceView.swift */; };
 		1B38725726957C4800A6A203 /* AllPiecesDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B38725626957C4800A6A203 /* AllPiecesDetailView.swift */; };
@@ -26,10 +25,6 @@
 		1BDF860525D7F64400ABE572 /* AllPiecesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDF860425D7F64400ABE572 /* AllPiecesView.swift */; };
 		1BDF860A25D7F6DA00ABE572 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDF860925D7F6DA00ABE572 /* SettingView.swift */; };
 		1BF7777926A8396B00F99EC0 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF7777826A8396A00F99EC0 /* Queue.swift */; };
-		1BF7777B26A951CA00F99EC0 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF7777A26A951CA00F99EC0 /* AudioRecorder.swift */; };
-		1BF7777D26A9526C00F99EC0 /* AudioRecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF7777C26A9526C00F99EC0 /* AudioRecordingView.swift */; };
-		1BF7777F26A9537600F99EC0 /* RecordingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF7777E26A9537600F99EC0 /* RecordingList.swift */; };
-		1BF7778126A953AC00F99EC0 /* MainRecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF7778026A953AC00F99EC0 /* MainRecordingView.swift */; };
 		1BF777D926AC650700F99EC0 /* RectanglePlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF777D826AC650700F99EC0 /* RectanglePlayView.swift */; };
 		1BF7780126AFCC4D00F99EC0 /* SongModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF7780026AFCC4D00F99EC0 /* SongModel.swift */; };
 /* End PBXBuildFile section */
@@ -52,7 +47,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1B035A112699BFFF00DA0E46 /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
 		1B226B2726994479004774CF /* PracticePieceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticePieceView.swift; sourceTree = "<group>"; };
 		1B3413A5269B6E3800AD63BA /* RecordingPieceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingPieceView.swift; sourceTree = "<group>"; };
 		1B38725626957C4800A6A203 /* AllPiecesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPiecesDetailView.swift; sourceTree = "<group>"; };
@@ -75,10 +69,6 @@
 		1BDF860425D7F64400ABE572 /* AllPiecesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPiecesView.swift; sourceTree = "<group>"; };
 		1BDF860925D7F6DA00ABE572 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		1BF7777826A8396A00F99EC0 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
-		1BF7777A26A951CA00F99EC0 /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
-		1BF7777C26A9526C00F99EC0 /* AudioRecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecordingView.swift; sourceTree = "<group>"; };
-		1BF7777E26A9537600F99EC0 /* RecordingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingList.swift; sourceTree = "<group>"; };
-		1BF7778026A953AC00F99EC0 /* MainRecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRecordingView.swift; sourceTree = "<group>"; };
 		1BF777D826AC650700F99EC0 /* RectanglePlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectanglePlayView.swift; sourceTree = "<group>"; };
 		1BF7780026AFCC4D00F99EC0 /* SongModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,7 +103,6 @@
 			children = (
 				1BC84BDE2694768300684DA7 /* RecordingView.swift */,
 				1B3413A5269B6E3800AD63BA /* RecordingPieceView.swift */,
-				1B035A112699BFFF00DA0E46 /* Recording.swift */,
 			);
 			path = RecordingView;
 			sourceTree = "<group>";
@@ -148,9 +137,7 @@
 			children = (
 				1BC84BDC2693FFB400684DA7 /* Song.swift */,
 				1B3872642695EDD100A6A203 /* PracticePiece.swift */,
-				1BB79DCA269844E5006E8F05 /* Setting.swift */,
 				1BF7777826A8396A00F99EC0 /* Queue.swift */,
-				1BF7778226AA376400F99EC0 /* Recording */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -196,21 +183,11 @@
 			path = "Piano Practice App";
 			sourceTree = "<group>";
 		};
-		1BF7778226AA376400F99EC0 /* Recording */ = {
-			isa = PBXGroup;
-			children = (
-				1BF7777A26A951CA00F99EC0 /* AudioRecorder.swift */,
-				1BF7777C26A9526C00F99EC0 /* AudioRecordingView.swift */,
-				1BF7777E26A9537600F99EC0 /* RecordingList.swift */,
-				1BF7778026A953AC00F99EC0 /* MainRecordingView.swift */,
-			);
-			path = Recording;
-			sourceTree = "<group>";
-		};
 		1BF777FD26AFCC3000F99EC0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				1BF7780026AFCC4D00F99EC0 /* SongModel.swift */,
+				1BB79DCA269844E5006E8F05 /* Setting.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -345,24 +322,19 @@
 			files = (
 				1B38725726957C4800A6A203 /* AllPiecesDetailView.swift in Sources */,
 				1BC84BDD2693FFB400684DA7 /* Song.swift in Sources */,
-				1BF7777B26A951CA00F99EC0 /* AudioRecorder.swift in Sources */,
 				1BDF85FD25D7F50F00ABE572 /* HomeView.swift in Sources */,
 				1BC84BDB2693FF3C00684DA7 /* PracticeView.swift in Sources */,
-				1BF7777D26A9526C00F99EC0 /* AudioRecordingView.swift in Sources */,
 				1BF777D926AC650700F99EC0 /* RectanglePlayView.swift in Sources */,
 				1B38725D2695A9CC00A6A203 /* AllPiecesAddView.swift in Sources */,
 				1BB79DCB269844E5006E8F05 /* Setting.swift in Sources */,
 				1BDF860A25D7F6DA00ABE572 /* SettingView.swift in Sources */,
 				1BF7777926A8396B00F99EC0 /* Queue.swift in Sources */,
-				1BF7777F26A9537600F99EC0 /* RecordingList.swift in Sources */,
 				1B3413A6269B6E3800AD63BA /* RecordingPieceView.swift in Sources */,
 				1BDF85D125D7F4C700ABE572 /* Pianoman.swift in Sources */,
 				1B38726726960F8200A6A203 /* RectangleView.swift in Sources */,
 				1BC84BDF2694768300684DA7 /* RecordingView.swift in Sources */,
-				1BF7778126A953AC00F99EC0 /* MainRecordingView.swift in Sources */,
 				1B38725A26957EBB00A6A203 /* SongView.swift in Sources */,
 				1BF7780126AFCC4D00F99EC0 /* SongModel.swift in Sources */,
-				1B035A122699BFFF00DA0E46 /* Recording.swift in Sources */,
 				1BDF860525D7F64400ABE572 /* AllPiecesView.swift in Sources */,
 				1B226B2826994479004774CF /* PracticePieceView.swift in Sources */,
 				1B3872652695EDD100A6A203 /* PracticePiece.swift in Sources */,

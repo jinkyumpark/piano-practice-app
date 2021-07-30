@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SongView: View {
     var song: Song
+    @EnvironmentObject var settings: Settings
+    @Environment(\.colorScheme) var systemColorScheme
     
     var body: some View {
         HStack {
@@ -25,7 +27,8 @@ struct SongView: View {
                         .font(.title)
                         .lineLimit(2)
                         .minimumScaleFactor(0.6)
-                    
+                        .foregroundColor(settings.forcedDarkMode ? .white : systemColorScheme == .dark ? .white : .black)
+
                     Text("                                 ")
                         .font(.largeTitle)
                         .opacity(0)

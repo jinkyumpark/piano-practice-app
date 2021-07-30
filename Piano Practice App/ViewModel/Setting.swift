@@ -8,7 +8,6 @@
 import Foundation
 import SwiftUI
 
-var practicePieceSelected: PracticePiece = listOfPracticePiece[0]
 var practicePieceColorSelected: Color = Color.red
 
 let primaryColorList = [Color.red:"red",
@@ -29,7 +28,17 @@ class Settings: ObservableObject {
         }
     }
     
+    @Published var selectedPracticePiece: PracticePiece {
+        didSet {
+            UserDefaults.standard.string(forKey: "practicePieceName")
+            UserDefaults.standard.string(forKey: "practicePieceImageName")
+        }
+    }
+    
     init() {
         self.forcedDarkMode = UserDefaults.standard.bool(forKey: "forcedDarkMode")
+        self.selectedPracticePiece = PracticePiece(
+            name: UserDefaults.standard.string(forKey: "practicePieceName")!,
+            imageName: UserDefaults.standard.string(forKey: "practicePieceImageName")!)
     }
 }

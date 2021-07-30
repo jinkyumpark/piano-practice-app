@@ -14,7 +14,8 @@ struct AllPiecesAddView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @EnvironmentObject var song: SongModel
-    
+    @EnvironmentObject var settings: Settings
+    @Environment(\.colorScheme) var systemColorScheme
 
     let formatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -72,6 +73,7 @@ struct AllPiecesAddView: View {
                     .padding()
             }))
         }
+        .environment(\.colorScheme, settings.forcedDarkMode ? .dark : systemColorScheme)
     }
 }
 

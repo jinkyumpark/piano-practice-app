@@ -10,7 +10,6 @@ import SwiftUI
 struct SettingView: View {
     
     @Binding var primaryColor: Color
-    @Binding var selectedPracticePiece: PracticePiece
     @State var tapticFeedback: Bool = UserDefaults.standard.object(forKey: "tapticFeedback") as? Bool ?? true
     
     @EnvironmentObject var settings: Settings
@@ -34,7 +33,7 @@ struct SettingView: View {
                         UserDefaults.standard.set(color.description, forKey: "primaryColor")
                     }
                     
-                    Picker("Practice Shape", selection: $selectedPracticePiece) {
+                    Picker("Practice Shape", selection: $settings.selectedPracticePiece) {
                         ForEach(listOfPracticePiece, id: \.self) { shape in
                             HStack {
                                 Image(systemName: shape.imageName)
@@ -42,7 +41,7 @@ struct SettingView: View {
                             }
                         }
                     }
-                    .onChange(of: selectedPracticePiece) { practice in
+                    .onChange(of: settings.selectedPracticePiece) { practice in
                         UserDefaults.standard.set(practice.name , forKey: "practicePieceName")
                         UserDefaults.standard.set(practice.imageName, forKey: "practicePieceImageName")
 //                        UserDefaults.standard.set(practice, forKey: "practicePiece")
@@ -75,7 +74,7 @@ struct SettingView: View {
 
 struct SettingView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingView(primaryColor: .constant(Color.red), selectedPracticePiece: .constant(listOfPracticePiece[0]))
+        SettingView(primaryColor: .constant(Color.red))
             .preferredColorScheme(.light)
     }
 }

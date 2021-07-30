@@ -8,15 +8,13 @@
 import SwiftUI
 
 struct HomeView: View {
-    
-    @Binding var practicePiece: PracticePiece
     @State var showingSheetStart = false
     @State var showingSheetReview = false
-    @Binding var primaryColor: Color
     @Environment(\.colorScheme) var systemColorScheme
     @State var songIndex: Int = 0
     
     @EnvironmentObject var song: SongModel
+    @EnvironmentObject var settings: Settings
     
     var body: some View {
         NavigationView {
@@ -30,7 +28,8 @@ struct HomeView: View {
 //                .onChange(of: song.mainSelectedSong, perform: { selectedSong in
 //                    song.mainSelectedSong = selectedSong
 //                })
-                
+                .foregroundColor(settings.forcedDarkMode ? .white : systemColorScheme == .dark ? .white : .black)
+
                 
                 Spacer()
                 
@@ -49,7 +48,7 @@ struct HomeView: View {
                             RectanglePlayView(color: Color.yellow, title: "Random Review", subImage: "play.circle.fill")
                         }
                         .sheet(isPresented: $showingSheetReview) {
-                            PracticeView(practiceSong: song.songData[songIndex], timerStartAutomatic: true, shape: $practicePiece, showingButtons: true)
+                            PracticeView(practiceSong: song.songData[songIndex], timerStartAutomatic: true, showingButtons: true)
                         }
                         
                         Button {
@@ -58,22 +57,21 @@ struct HomeView: View {
                             RectanglePlayView(color: Color.red, title: "Start Now", subImage: "play.fill")
                         }
                         .sheet(isPresented: $showingSheetStart) {
-                            PracticeView(practiceSong: song.mainSelectedSong, timerStartAutomatic: true, shape: $practicePiece, showingButtons: true)
+                            PracticeView(practiceSong: song.mainSelectedSong, timerStartAutomatic: true, showingButtons: true)
                         }
                     }
                 }
                 Spacer()
             }
             .navigationTitle("Home")
-            .accentColor(primaryColor)
-//            .environment(\.colorScheme, isDark ? .dark : systemColorScheme)
+            .environment(\.colorScheme, settings.forcedDarkMode ? .dark : systemColorScheme)
         }
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(practicePiece: .constant(listOfPracticePiece[0]), primaryColor: .constant(Color.red))
+        HomeView()
             .environmentObject(SongModel())
     }
 }

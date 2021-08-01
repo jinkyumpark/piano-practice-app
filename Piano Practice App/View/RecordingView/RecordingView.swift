@@ -15,10 +15,9 @@ struct RecordingView: View {
     @State var isPlaying = false
     @State var recording: Double = 0
     
-    @State var isRecording = false
-    @State var session: AVAudioSession!
-    @State var recorder: AVAudioRecorder!
     @State var alert = false
+    
+    @EnvironmentObject var audioRecorder: AudioRecorder
     
     
     var body: some View {
@@ -27,16 +26,8 @@ struct RecordingView: View {
             ZStack {
             ScrollView {
                 VStack {
-                    SongView(song: dummySong[0])
-                
-                RecordingPieceView(isPlaying: $isPlaying, recordingPlay: $recordingPlay, isEditing: $isEditing)
-                RecordingPieceView(isPlaying: $isPlaying, recordingPlay: $recordingPlay, isEditing: $isEditing)
+                    RecordingListView()
                     
-                    SongView(song: dummySong[0])
-                    
-                RecordingPieceView(isPlaying: $isPlaying, recordingPlay: $recordingPlay, isEditing: $isEditing)
-
-
                 Spacer()
                 }
             }
@@ -47,7 +38,7 @@ struct RecordingView: View {
                     
                     HStack {
                         
-                    if isRecording {
+                    if audioRecorder.recording {
                         Slider(value: $recording, in: 1...100)
                             .padding(.horizontal, 40)
                     }
@@ -55,9 +46,13 @@ struct RecordingView: View {
                     Spacer()
                     
                     Button(action: {
-                        isRecording.toggle()
+                        if !audioRecorder.recording {
+                            self.audioRecorder.startRecording()
+                        } else {
+                            self.audioRecorder.stopRecording()
+                        }
                     }, label: {
-                        Image(systemName: isRecording ? "stop.circle.fill":"record.circle")
+                        Image(systemName: audioRecorder.recording ? "stop.circle.fill":"record.circle")
                             .font(.system(size: 70))
                             .foregroundColor(Color.red)
                             .padding()

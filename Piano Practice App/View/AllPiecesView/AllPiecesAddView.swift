@@ -22,6 +22,9 @@ struct AllPiecesAddView: View {
         formatter.numberStyle = .decimal
         return formatter
     }()
+    
+    @State var showingPhotoPicker = false
+    @State var defaultImage = UIImage(named: "default")!
 
     
     var body: some View {
@@ -33,6 +36,9 @@ struct AllPiecesAddView: View {
                     .cornerRadius(20)
                     .padding()
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+                    .onTapGesture {
+                        showingPhotoPicker = true
+                    }
 
                 Text(pieceTitle.isEmpty ? "Title" : pieceTitle)
                     .font(.title)
@@ -72,6 +78,9 @@ struct AllPiecesAddView: View {
                     .font(.body)
                     .padding()
             }))
+            .sheet(isPresented: $showingPhotoPicker, content: {
+                PhotoPicker(avatarImage: $defaultImage)
+            })
         }
         .environment(\.colorScheme, settings.forcedDarkMode ? .dark : systemColorScheme)
     }
@@ -80,5 +89,7 @@ struct AllPiecesAddView: View {
 struct AllPiecesAddView_Previews: PreviewProvider {
     static var previews: some View {
         AllPiecesAddView()
+            .environmentObject(SongModel())
+            .environmentObject(Settings())
     }
 }

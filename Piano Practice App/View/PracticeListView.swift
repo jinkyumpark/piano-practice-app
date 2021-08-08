@@ -18,7 +18,8 @@ struct PracticeListView: View {
             List() {
                 ForEach(song.songData) { song in
                     NavigationLink(
-                        destination: PracticeView(practiceSong: song, timerStartAutomatic: true, showingButtons: true),
+                        destination: PracticeView(practiceSong: song, timerStartAutomatic: true, showingButtons: true)
+                            .navigationBarHidden(true),
                         label: {
                             SongView(song: song)
                         })

@@ -10,7 +10,8 @@ import SwiftUI
 struct AllPiecesAddView: View {
     
     @State var pieceTitle: String = ""
-    @State var composer: String = "Composer"
+    @State var composer: String = ""
+    @State var genre: String = ""
     @Environment(\.presentationMode) var presentationMode
     
     @EnvironmentObject var song: SongModel
@@ -24,13 +25,12 @@ struct AllPiecesAddView: View {
     }()
     
     @State var showingPhotoPicker = false
-    @State var defaultImage = UIImage(named: "default")!
-
+    @State var defaultImage: UIImage?
     
     var body: some View {
         NavigationView {
             Form {
-                Image(getImageName(composer: composer))
+                Image(uiImage: defaultImage != nil ? defaultImage! : UIImage(imageLiteralResourceName: getImageName(composer: composer)))
                     .resizable()
                     .frame(width: 90, height: 90)
                     .cornerRadius(20)
@@ -52,15 +52,24 @@ struct AllPiecesAddView: View {
 
                 Section(header: Text("Piece Information")) {
                     TextField("Title", text: $pieceTitle)
-                        .padding()
-                                        
-                    Picker("Composer", selection: $composer) {
-                        ForEach(Array(imageNameData.keys), id: \.self) { composerName in
-                            Text(composerName)
+                    
+                    Picker("Genre", selection: $genre) {
+                        ForEach(song.songGenre, id: \.self) {genre in
+                            Text(genre)
                         }
                     }
-                    .padding()
+                    
+                    if genre == "Classical" {
+                        Picker("Composer", selection: $composer) {
+                            ForEach(Array(classicalImageNameData.keys), id: \.self) { composerName in
+                                Text(composerName)
+                            }
+                        }
+                    } else {
+                        TextField("Artist", text: $composer)
+                    }
                 }
+                .padding()
             }
             .navigationBarItems(leading: Button(action: {
                 presentationMode.wrappedValue.dismiss()
@@ -70,7 +79,7 @@ struct AllPiecesAddView: View {
                     .padding()
             })
             ,trailing: Button(action: {
-                let song = Song(title: self.pieceTitle, composer: self.composer, imageName: getImageName(composer: self.composer), timesPracticed: 0, hourPracticed: 0)
+                let song = Song(title: self.pieceTitle, composer: self.composer, imageName: getImageName(composer: self.composer), genre: "", timesPracticed: 0, hourPracticed: 0)
                 self.song.songData.append(song)
                 presentationMode.wrappedValue.dismiss()
             }, label: {

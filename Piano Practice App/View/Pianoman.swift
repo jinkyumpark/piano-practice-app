@@ -11,11 +11,8 @@ struct Pianoman: View {
     // TODO : App Crash when sheet is presented
     // TODO : Recording features
     // TODO : Save user song data to coreData
-    // TODO : Move settings to viewmodel
     // TODO : Update practiceHour/time accordingly
     // TODO : Add custom textfield to addsongview
-    // TODO : Select classical/anime
-    // TODO : Color don't appear in settings
          
     @Environment(\.colorScheme) var systemColorScheme
     @EnvironmentObject var song: SongModel

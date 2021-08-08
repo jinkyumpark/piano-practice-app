@@ -14,11 +14,12 @@ struct Song: Codable, Identifiable, Hashable {
     var title: String
     var composer: String
     var imageName: String
+    var genre: String
     var timesPracticed: Int
     var hourPracticed: Double
 }
 
-let imageNameData = ["Custom":"Defalut","A. Vivaldi":"a-vivaldi", "C. Debussy":"c-debussy", "C. Sanin-Saens":"c-saint-saens",
+let classicalImageNameData = ["Custom":"Defalut","A. Vivaldi":"a-vivaldi", "C. Debussy":"c-debussy", "C. Sanin-Saens":"c-saint-saens",
                  "Edward Elgar":"e-elgar", "F. F. Chopin" : "f-chopin", "F. Handel" :"f-handel",
                  "Franz Listz":"f-listz", "F. Mendelssohn":"f-mendelssohn", "F. Schubert":"f-schubert",
                  "G. Verdi":"g-verdi", "J. Brahms":"j-brahms", "Joseph Haydn":"j-haydn",
@@ -28,12 +29,11 @@ let imageNameData = ["Custom":"Defalut","A. Vivaldi":"a-vivaldi", "C. Debussy":"
                 ]
 
 func getImageName(composer: String) -> String {
-    if imageNameData[composer] != nil {
-        return String(imageNameData[composer]!)
+    if classicalImageNameData[composer] != nil {
+        return String(classicalImageNameData[composer]!)
     } else {
         return "default"
     }
 }
 
-
-let dummySong = [Song(title: "Add Songs to Start!", composer: "Add Songs in 'All Pieces'", imageName: "default", timesPracticed: 0, hourPracticed: 0)]
+let dummySong = [Song(title: "Add Songs to Start!", composer: "Add Songs in 'All Pieces'", imageName: "default", genre: "classical", timesPracticed: 0, hourPracticed: 0)]

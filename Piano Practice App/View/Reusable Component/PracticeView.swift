@@ -18,9 +18,7 @@ struct PracticeView: View {
     @State var showingRecordingAlert = false
     @State var showingCancelAlert = false
     @State var showingButtons: Bool
-    
-//    @Binding var isDark: Bool
-    
+        
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.colorScheme) var systemColorScheme
     
@@ -95,15 +93,7 @@ struct PracticeView: View {
                                     .stroke(systemColorScheme == .light ? Color.gray:Color.white, lineWidth: 5)
                             )
                     })
-                        .alert(isPresented: $showingRecordingAlert) {
-                            Alert(title: Text("Recording"),
-                                  message: Text("Do you want to save the recording?"),
-                                  primaryButton: .default(Text("Save"), action: {
 
-                            }),
-                                  secondaryButton: .cancel())
-                        }
-                    
                     Button(action: {
                         timerStartAutomatic.toggle()
                     }, label: {
@@ -131,8 +121,13 @@ struct PracticeView: View {
                     Text(showingButtons ? "Save" : "")
             }))
             .alert(isPresented: $showingRecordingAlert) {
-                Alert(title: Text("Are you Sure to Dismiss All the Progress?"), message: Text("This Will Unsave All the Changes You Have Made"), primaryButton: .default(Text("OK"), action: {
+                Alert(title: Text("Do You Want to Save the Recording?"), message: Text("You Can Find Recording in 'Recordings'"), primaryButton: .default(Text("OK"), action: {
                     self.saveRecordings = true
+                    presentationMode.wrappedValue.dismiss()
+                }), secondaryButton: .cancel())
+            }
+            .alert(isPresented: $showingCancelAlert) {
+                Alert(title: Text("Are You Sure to Dismiss All the Progress?"), message: Text("This Will Unsave All the Changes You Have Made"), primaryButton: .default(Text("OK"), action: {
                     presentationMode.wrappedValue.dismiss()
                 }), secondaryButton: .cancel())
             }

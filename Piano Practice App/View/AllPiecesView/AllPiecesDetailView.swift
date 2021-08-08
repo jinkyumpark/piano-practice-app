@@ -42,9 +42,3 @@ struct AllPiecesDetailView: View {
         }
     }
 }
-
-struct AllPiecesDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        AllPiecesDetailView(song: Song(title: "", composer: "", imageName: "", timesPracticed: 0, hourPracticed: 0.1))
-    }
-}

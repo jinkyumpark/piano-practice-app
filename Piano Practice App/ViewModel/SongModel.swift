@@ -35,6 +35,8 @@ class SongModel: ObservableObject {
     
     @Published var averageInWeek: Double = 0
     
+    let songGenre = ["Classical", "Jazz", "Pop", "Anime", "Rock"]
+    
     init() {
         if let songData = UserDefaults.standard.data(forKey: "SongData") {
             let decoder = JSONDecoder()
@@ -55,7 +57,7 @@ class SongModel: ObservableObject {
         
         self.totalPracticeTime = UserDefaults.standard.double(forKey: "totalPracticeTime")
 
-        self.songData = [Song(title: "Toccata and Fugue in D minor", composer: "J.S. Bach", imageName: "j-s-bach", timesPracticed: 0, hourPracticed: 0.1)]
+        self.songData = [Song(title: "Toccata and Fugue in D minor", composer: "J.S. Bach", imageName: "j-s-bach", genre: "classical", timesPracticed: 0, hourPracticed: 0.1)]
     }
 //    Song(title: "Dreams of Love No.3", composer: "F. Listz", imageName: "f-listz", timesPracticed: 3),
 //

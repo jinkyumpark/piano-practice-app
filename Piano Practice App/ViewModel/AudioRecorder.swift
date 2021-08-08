@@ -23,6 +23,8 @@ class AudioRecorder: NSObject, ObservableObject {
         }
     }
     
+    var songIndex: Int = 0
+    
     override init() {
         super.init()
         fetchRecordings()
@@ -39,7 +41,7 @@ class AudioRecorder: NSObject, ObservableObject {
         }
         
         let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let audioFilename = documentPath.appendingPathComponent("\(Date().toString(dateFormat: "dd-MM-YY_'at'_HH:mm:ss")).m4a")
+        let audioFilename = documentPath.appendingPathComponent("\(Date().toString(dateFormat: "dd-MM-YY HH:mm"))")
         
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -66,19 +68,20 @@ class AudioRecorder: NSObject, ObservableObject {
     }
     
     func fetchRecordings() {
-            recordings.removeAll()
-            
-            let fileManager = FileManager.default
-            let documentDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            let directoryContents = try! fileManager.contentsOfDirectory(at: documentDirectory, includingPropertiesForKeys: nil)
-            for audio in directoryContents {
-                let recording = Recording(fileURL: audio, createdAt: getCreationDate(for: audio))
-                recordings.append(recording)
-            }
-            recordings.sort(by: { $0.createdAt.compare($1.createdAt) == .orderedAscending})
-            
-            objectWillChange.send(self)
+        recordings.removeAll()
+        
+        let fileManager = FileManager.default
+        let documentDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let directoryContents = try! fileManager.contentsOfDirectory(at: documentDirectory, includingPropertiesForKeys: nil)
+        for audio in directoryContents {
+            let recording = Recording(fileURL: audio, createdAt: getCreationDate(for: audio), songIndex: songIndex)
+            recordings.append(recording)
         }
+
+        recordings.sort(by: { $0.createdAt.compare($1.createdAt) == .orderedAscending})
+        
+        objectWillChange.send(self)
+    }
 
     func getCreationDate(for file: URL) -> Date {
         if let attributes = try? FileManager.default.attributesOfItem(atPath: file.path) as [FileAttributeKey: Any],
@@ -88,5 +91,17 @@ class AudioRecorder: NSObject, ObservableObject {
             return Date()
         }
     }
-
+    
+    func deleteRecording(urlsToDelete: [URL]) {
+            
+            for url in urlsToDelete {
+                print(url)
+                do {
+                   try FileManager.default.removeItem(at: url)
+                } catch {
+                    print("File could not be deleted!")
+                }
+            }
+            fetchRecordings()
+        }
 }

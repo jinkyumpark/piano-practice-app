@@ -15,7 +15,6 @@ struct PracticeView: View {
     
     @State var currentTime: Int = 0
     @State var timerStartAutomatic: Bool
-    @State var isRecording: Bool = false
     @State var showingRecordingAlert = false
     @State var showingCancelAlert = false
     @State var showingButtons: Bool
@@ -27,39 +26,35 @@ struct PracticeView: View {
     
     @EnvironmentObject var song: SongModel
     @EnvironmentObject var settings: Settings
+    @ObservedObject var audioRecorder = AudioRecorder()
+    
+    @State var selectSongPresented: Bool = false
+    @State var songIndex: Int = 0
+    @State var saveRecordings: Bool = false
 
 
     var body: some View {
         NavigationView {
             VStack {
-//                SongView(song: practiceSong)
-                Picker(selection: $song.mainSelectedSong, label: SongView(song: song.mainSelectedSong)) {
-                    ForEach(song.songData) { song in
-                        SongView(song: song)
-                    }
-                }
-                .pickerStyle(MenuPickerStyle())
-                .foregroundColor(settings.forcedDarkMode ? .white : systemColorScheme == .dark ? .white : .black)
-//                .onChange(of: song.mainSelectedSong, perform: { selectedSong in
-//                    self.song.mainSelectedSong = selectedSong
-//                })
+                SongView(song: practiceSong)
+                    .foregroundColor(settings.forcedDarkMode ? .white : systemColorScheme == .dark ? .white : .black)
 
 
                 HStack {
-                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: song.mainSelectedSong)
-                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: song.mainSelectedSong)
-                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: song.mainSelectedSong)
-                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: song.mainSelectedSong)
-                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: song.mainSelectedSong)
+                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: practiceSong)
+                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: practiceSong)
+                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: practiceSong)
+                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: practiceSong)
+                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: practiceSong)
                 }
                 .padding(.bottom)
                 
                 HStack {
-                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: song.mainSelectedSong)
-                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: song.mainSelectedSong)
-                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: song.mainSelectedSong)
-                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: song.mainSelectedSong)
-                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: song.mainSelectedSong)
+                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: practiceSong)
+                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: practiceSong)
+                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: practiceSong)
+                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: practiceSong)
+                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: practiceSong)
                 }
             
                 Spacer()
@@ -76,12 +71,21 @@ struct PracticeView: View {
                 
                 HStack {
                     Button(action: {
-                        isRecording.toggle()
-                        if !isRecording {
-                            showingRecordingAlert.toggle()
+                        if !audioRecorder.recording {
+                            self.audioRecorder.startRecording()
+                        } else {
+                            showingRecordingAlert = true
+                            if saveRecordings {
+                                self.selectSongPresented = true
+                                self.audioRecorder.songIndex = songIndex
+                                self.audioRecorder.stopRecording()
+                            } else {
+                                self.audioRecorder.recording = false
+                            }
                         }
+
                     }, label: {
-                        Image(systemName: isRecording ? "stop.circle.fill":"record.circle")
+                        Image(systemName: self.audioRecorder.recording ? "stop.circle.fill":"record.circle")
                             .frame(width: 150, height: 75)
                             .font(.system(size: 50))
                             .foregroundColor(.red)
@@ -115,30 +119,26 @@ struct PracticeView: View {
                 Spacer()
                 
             }
-            .navigationTitle("Practice : \(song.mainSelectedSong.timesPracticed)")
+            .navigationTitle("Practice : \(practiceSong.timesPracticed)")
             .navigationBarItems(leading: Button(action: {
                 showingCancelAlert.toggle()
             }, label: {
                 Text(showingButtons ? "Cancel" : "")
                 }), trailing: Button(action: {
+                    song.totalPracticeTime += Double(currentTime / 60 / 60)
                     presentationMode.wrappedValue.dismiss()
                 }, label: {
                     Text(showingButtons ? "Save" : "")
             }))
-            .alert(isPresented: $showingCancelAlert) {
+            .alert(isPresented: $showingRecordingAlert) {
                 Alert(title: Text("Are you Sure to Dismiss All the Progress?"), message: Text("This Will Unsave All the Changes You Have Made"), primaryButton: .default(Text("OK"), action: {
+                    self.saveRecordings = true
                     presentationMode.wrappedValue.dismiss()
                 }), secondaryButton: .cancel())
             }
+            
         }
+        .accentColor(settings.primaryColor)
         .environment(\.colorScheme, settings.forcedDarkMode ? .dark : systemColorScheme)
-    }
-}
-
-
-
-struct PracticeView_Previews: PreviewProvider {
-    static var previews: some View {
-        PracticeView(practiceSong: dummySong[0], currentTime: 0, timerStartAutomatic: false, showingButtons: true)
     }
 }

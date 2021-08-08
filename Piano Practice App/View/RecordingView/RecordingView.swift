@@ -16,51 +16,76 @@ struct RecordingView: View {
     @State var recording: Double = 0
     
     @State var alert = false
+    @State var songIndex = 0
+    @State var selectSongPresented: Bool = false
     
     @EnvironmentObject var audioRecorder: AudioRecorder
+    @EnvironmentObject var song: SongModel
+    
+    @Environment(\.presentationMode) var presentationMode
     
     
     var body: some View {
         NavigationView {
             
             ZStack {
-            ScrollView {
-                VStack {
-                    RecordingListView()
-                    
-                Spacer()
+                ScrollView {
+                    VStack {
+                        RecordingListView()
+                    Spacer()
+                    }
                 }
-            }
                 
                 VStack {
                     Spacer()
                     
-                    
                     HStack {
                         
-                    if audioRecorder.recording {
-                        Slider(value: $recording, in: 1...100)
-                            .padding(.horizontal, 40)
-                    }
-                        
-                    Spacer()
-                    
-                    Button(action: {
-                        if !audioRecorder.recording {
-                            self.audioRecorder.startRecording()
-                        } else {
-                            self.audioRecorder.stopRecording()
+                        if audioRecorder.recording {
+                            // View to present when recording is pressed
                         }
-                    }, label: {
-                        Image(systemName: audioRecorder.recording ? "stop.circle.fill":"record.circle")
-                            .font(.system(size: 70))
-                            .foregroundColor(Color.red)
-                            .padding()
-                    })
-                }
+                            
+                        Spacer()
+                        
+                        Button(action: {
+                            if !audioRecorder.recording {
+                                self.audioRecorder.startRecording()
+                            } else {
+                                self.selectSongPresented = true
+                                self.audioRecorder.songIndex = songIndex
+                                self.audioRecorder.stopRecording()
+                            }
+                        }, label: {
+                            Image(systemName: audioRecorder.recording ? "stop.circle.fill":"record.circle")
+                                .font(.system(size: 70))
+                                .foregroundColor(Color.red)
+                                .padding()
+                        })
+                    }
                 }
             }
                 .navigationTitle("Recordings")
+                .navigationBarItems(trailing: EditButton())
+            .sheet(isPresented: $selectSongPresented, content: {
+                NavigationView {
+                    List() {
+                        ForEach(self.song.songData) { song in
+                            Button(action: {
+                                self.audioRecorder.songIndex = self.song.songData.firstIndex(of: song) ?? 0
+                                presentationMode.wrappedValue.dismiss()
+                            }, label: {
+                                SongView(song: song)
+                            })
+//                                .onTapGesture {
+//                                    self.audioRecorder.songIndex = self.song.songData.firstIndex(of: song) ?? 0
+//                                    presentationMode.wrappedValue.dismiss()
+//                                }
+                        }
+                    }
+                    .listStyle(InsetGroupedListStyle())
+                    .navigationTitle("Select Song")
+                }
+            })
         }
     }
 }

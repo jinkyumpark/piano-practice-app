@@ -27,7 +27,13 @@ class SongModel: ObservableObject {
         }
     }
     
-    var totalPracticeTime: Int = 0
+    @Published var totalPracticeTime: Double = 0 {
+        didSet {
+            UserDefaults.standard.set(totalPracticeTime, forKey: "totalPracticeTime")
+        }
+    }
+    
+    @Published var averageInWeek: Double = 0
     
     init() {
         if let songData = UserDefaults.standard.data(forKey: "SongData") {
@@ -46,18 +52,17 @@ class SongModel: ObservableObject {
                 return
             }
         }
+        
+        self.totalPracticeTime = UserDefaults.standard.double(forKey: "totalPracticeTime")
 
         self.songData = [Song(title: "Toccata and Fugue in D minor", composer: "J.S. Bach", imageName: "j-s-bach", timesPracticed: 0, hourPracticed: 0.1)]
-        
     }
-//    [
-//        Song(title: "Dreams of Love No.3", composer: "F. Listz", imageName: "f-listz", timesPracticed: 3),
+//    Song(title: "Dreams of Love No.3", composer: "F. Listz", imageName: "f-listz", timesPracticed: 3),
 //
-//        Song(title: "Für Elise", composer: "Ludwig Van Beethoven", imageName: "l-v-beethoven", timesPracticed: 4),
-//        Song(title: "Messiah", composer: "Frideric Handel", imageName: "f-handel", timesPracticed: 5),
-//        Song(title: "Serenade No. 13 in G Major, K 525", composer: "Wolfgang Amadeus Mozart", imageName: "w-a-mozart", timesPracticed: 5),
-//        Song(title: "Waltz Op.25 No. 1", composer: "F. F. Chopin", imageName: "f-chopin", timesPracticed: 5),
+//    Song(title: "Für Elise", composer: "Ludwig Van Beethoven", imageName: "l-v-beethoven", timesPracticed: 4),
+//    Song(title: "Messiah", composer: "Frideric Handel", imageName: "f-handel", timesPracticed: 5),
+//    Song(title: "Serenade No. 13 in G Major, K 525", composer: "Wolfgang Amadeus Mozart", imageName: "w-a-mozart", timesPracticed: 5),
+//    Song(title: "Waltz Op.25 No. 1", composer: "F. F. Chopin", imageName: "f-chopin", timesPracticed: 5),
 //
-//        Song(title: "Turkish March", composer: "W. A. Mozart", imageName: "w-a-mozart", timesPracticed: 6)
-//    ]
+//    Song(title: "Turkish March", composer: "W. A. Mozart", imageName: "w-a-mozart", timesPracticed: 6)
 }

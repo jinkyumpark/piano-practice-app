@@ -8,13 +8,6 @@
 import Foundation
 import SwiftUI
 
-var practicePieceColorSelected: Color = Color.red
-
-let primaryColorList = [Color.red:"red",
-                        Color.blue:"blue",
-                        Color.green:"green"
-]
-
 extension Dictionary where Value: Equatable {
     func someKey(forValue val: Value) -> Key? {
         return first(where: { $1 == val })?.key
@@ -22,6 +15,11 @@ extension Dictionary where Value: Equatable {
 }
 
 class Settings: ObservableObject {
+    let primaryColorList = [Color.red:"red",
+                            Color.blue:"blue",
+                            Color.green:"green"
+    ]
+
     @Published var forcedDarkMode: Bool {
         didSet {
             UserDefaults.standard.set(forcedDarkMode, forKey: "forcedDarkMode")
@@ -35,10 +33,17 @@ class Settings: ObservableObject {
         }
     }
     
+    @Published var primaryColor: Color {
+        didSet {
+            UserDefaults.standard.set(primaryColor.description, forKey: "primaryColor")
+        }
+    }
+    
     init() {
         self.forcedDarkMode = UserDefaults.standard.bool(forKey: "forcedDarkMode")
         self.selectedPracticePiece = PracticePiece(
-            name: UserDefaults.standard.string(forKey: "practicePieceName")!,
-            imageName: UserDefaults.standard.string(forKey: "practicePieceImageName")!)
+            name: UserDefaults.standard.string(forKey: "practicePieceName") ?? "Cloud",
+            imageName: UserDefaults.standard.string(forKey: "practicePieceImageName") ?? "cloud")
+        self.primaryColor = primaryColorList.someKey(forValue: UserDefaults.standard.string(forKey: "primaryColor") ?? "red")!
     }
 }

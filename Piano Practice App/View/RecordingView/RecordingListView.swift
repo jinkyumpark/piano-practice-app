@@ -10,16 +10,29 @@ import SwiftUI
 struct RecordingListView: View {
     
     @EnvironmentObject var audioRecorder: AudioRecorder
+    @EnvironmentObject var audioPlayer: AudioPlayer
     
     var body: some View {
-        ForEach(audioRecorder.recordings, id: \.createdAt) { recording in
-            RecordingRow(audioURL: recording.fileURL)
+        ForEach(0..<audioRecorder.recordings.count) { index in
+//            ForEach(audioRecorder.recordings[index].songIndex)
+            RecordingRow(audioURL: audioRecorder.recordings[index].fileURL)
         }
+        .onDelete(perform: delete)
+    }
+    
+    func delete(at offsets: IndexSet) {
+        var urlsToDelete = [URL]()
+        for index in offsets {
+            urlsToDelete.append(audioRecorder.recordings[index].fileURL)
+        }
+        audioRecorder.deleteRecording(urlsToDelete: urlsToDelete)
     }
 }
 
 
 struct RecordingRow: View {
+    
+    @EnvironmentObject var audioPlayer: AudioPlayer
     
     var audioURL: URL
     
@@ -28,6 +41,17 @@ struct RecordingRow: View {
             Text("\(audioURL.lastPathComponent)")
                 .padding()
             Spacer()
+            
+            Button(action: {
+                if audioPlayer.isPlaying {
+                    self.audioPlayer.stopPlayback()
+                } else {
+                    self.audioPlayer.startPlayback(audio: self.audioURL)
+                }
+            }, label: {
+                Image(systemName: audioPlayer.isPlaying ? "stop.fill" : "play.circle")
+                    .padding()
+            })
         }
     }
 }

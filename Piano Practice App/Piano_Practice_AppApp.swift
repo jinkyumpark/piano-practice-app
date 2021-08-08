@@ -15,6 +15,7 @@ struct Piano_Practice_AppApp: App {
                 .environmentObject(SongModel())
                 .environmentObject(Settings())
                 .environmentObject(AudioRecorder())
+                .environmentObject(AudioPlayer())
         }
     }
 }

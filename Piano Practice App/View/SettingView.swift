@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingView: View {
     
-    @Binding var primaryColor: Color
+//    @Binding var primaryColor: Color
     @State var tapticFeedback: Bool = UserDefaults.standard.object(forKey: "tapticFeedback") as? Bool ?? true
     
     @EnvironmentObject var settings: Settings
@@ -20,17 +20,14 @@ struct SettingView: View {
                 Section(header: Text("Appearecne")) {
                     Toggle("Forced Dark Mode", isOn: $settings.forcedDarkMode)
                                         
-                    Picker("Primary Color", selection: $primaryColor) {
-                        ForEach(Array(primaryColorList.keys), id: \.self) { color in
+                    Picker("Primary Color", selection: $settings.primaryColor) {
+                        ForEach(Array(settings.primaryColorList.keys), id: \.self) { color in
                             HStack {
                                 Image(systemName: "circle.fill")
                                     .foregroundColor(color)
                                 Text(color.description)
                             }
                         }
-                    }
-                    .onChange(of: primaryColor) { color in
-                        UserDefaults.standard.set(color.description, forKey: "primaryColor")
                     }
                     
                     Picker("Practice Shape", selection: $settings.selectedPracticePiece) {
@@ -69,12 +66,5 @@ struct SettingView: View {
             }
             .navigationTitle("Preferences")
         }
-    }
-}
-
-struct SettingView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingView(primaryColor: .constant(Color.red))
-            .preferredColorScheme(.light)
     }
 }

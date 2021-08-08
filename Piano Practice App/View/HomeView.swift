@@ -15,16 +15,17 @@ struct HomeView: View {
     
     @EnvironmentObject var song: SongModel
     @EnvironmentObject var settings: Settings
+    @EnvironmentObject var audioRecorder: AudioRecorder
     
     var body: some View {
         NavigationView {
             VStack{
-                Picker(selection: $song.mainSelectedSong, label: SongView(song: song.mainSelectedSong)) {
-                    ForEach(song.songData) { songData in
-                        SongView(song: songData)
-                    }
-                }
-                .pickerStyle(MenuPickerStyle())
+//                Picker(selection: $song.mainSelectedSong, label: SongView(song: song.mainSelectedSong)) {
+//                    ForEach(song.songData) { songData in
+                SongView(song: song.mainSelectedSong)
+//                    }
+//                }
+//                .pickerStyle(InlinePickerStyle())
 //                .onChange(of: song.mainSelectedSong, perform: { selectedSong in
 //                    song.mainSelectedSong = selectedSong
 //                })
@@ -35,9 +36,9 @@ struct HomeView: View {
                 
                 VStack {
                     HStack {
-                        RectangleView(color: Color.blue, title: "Average in Week", subtitle: "5 Hour")
+                        RectangleView(color: Color.blue, title: "Average in Week", subtitle: String(song.averageInWeek) + " H")
                         
-                        RectangleView(color: Color.blue, title: "Total time", subtitle: "20 Hour")
+                        RectangleView(color: Color.blue, title: "Total time", subtitle: String(song.totalPracticeTime) + " H")
                     }
                     
                     HStack {

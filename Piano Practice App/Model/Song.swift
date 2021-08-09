@@ -36,4 +36,7 @@ func getImageName(composer: String) -> String {
     }
 }
 
-let dummySong = [Song(title: "Add Songs to Start!", composer: "Add Songs in 'All Pieces'", imageName: "default", genre: "classical", timesPracticed: 0, hourPracticed: 0)]
+let placeholderSong: [String:Song] = [
+    "en":Song(title: "Add Songs to Start!", composer: "Add Songs in 'All Pieces'", imageName: "default", genre: "classical", timesPracticed: 0, hourPracticed: 0),
+    "ko":Song(title: "곡 추가로 시작하세요!", composer: "'모든 곡'에서 곡을 추가할 수 있습니다.", imageName: "default", genre: "classical", timesPracticed: 0, hourPracticed: 0),
+    "ja":Song(title: "曲を追加して始められます！", composer: "’全ての曲’で曲を追加できます", imageName: "default", genre: "classical", timesPracticed: 0, hourPracticed: 0)]

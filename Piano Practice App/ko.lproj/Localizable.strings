@@ -1,0 +1,57 @@
+/* 
+  Localizable.strings
+  Piano Practice App
+
+  Created by Jin Park on 8/9/21.
+  
+*/
+
+//TabView
+"Home" = "홈 화면";
+"Practice" = "연습";
+"Recordings" = "녹음";
+"All Pieces" = "모든 곡";
+"Preferences" = "설정";
+
+// Home
+"Average In Week" = "1주일 평균 연습시간";
+"Total Time" = "총 연습시간";
+"Random Review" = "랜덤 복습";
+"Start Now" = "지금 시작";
+
+// Settings
+"Appearence" = "디자인";
+"Forced Dark Mode" = "강제 다크 모드";
+"Primary Color" = "메인 컬러";
+"Practice Shape" = "연습 피스 모양";
+"General" = "일반";
+"Practice Shape Taptic" = "연습 피스 진동";
+"Information" = "정보";
+"Contact me" = "개발자에게 연락";
+
+// PracticeView
+"Practice" = "연습";
+"Resume" = "시작";
+"Pause" = "정지";
+
+// Alert
+"Are You Sure to Dismiss All the Progress?" = "정말로 여태까지의 연습을 지우시겠습니까?";
+"This Will Unsave All the Changes You Have Made" = "연습을 저장하려면 '저장'을 누르십시오.";
+"OK" = "확인";
+"Cancel" = "취소";
+"Save" = "저장";
+
+// All Pieces Add View
+"Piece Information" = "곡 정보";
+"Title" = "제목";
+"Genre" = "장르";
+"Artist" = "아티스트";
+"Composer" = "작곡가";
+
+// All Pieces Detail View
+"Informations" = "정보";
+"Practice Time" = "연습 시간";
+"Times Practiced" = "연습 횟수";
+
+// Recording Select Sheet
+"Select Song" = "녹음한 곡 선택";

@@ -6,6 +6,9 @@
 //
 
 import Foundation
+import SwiftUI
+
+var currentLanguage = Locale.current.languageCode
 
 class SongModel: ObservableObject {
     
@@ -18,7 +21,7 @@ class SongModel: ObservableObject {
         }
     }
     
-    @Published var mainSelectedSong = dummySong[0] {
+    @Published var mainSelectedSong: Song = placeholderSong[currentLanguage!] ?? placeholderSong["en"]! {
         didSet {
             let encoder = JSONEncoder()
             if let encoded = try? encoder.encode(mainSelectedSong) {
@@ -35,7 +38,7 @@ class SongModel: ObservableObject {
     
     @Published var averageInWeek: Double = 0
     
-    let songGenre = ["Classical", "Jazz", "Pop", "Anime", "Rock"]
+    let songGenre = ["Classical", "Pop", "Anime", "Jazz", "Rock"]
     
     init() {
         if let songData = UserDefaults.standard.data(forKey: "SongData") {

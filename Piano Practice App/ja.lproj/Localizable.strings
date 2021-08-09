@@ -1,0 +1,57 @@
+/* 
+  Localizable.strings
+  Piano Practice App
+
+  Created by Jin Park on 8/9/21.
+  
+*/
+
+//TabView
+"Home" = "ホーム";
+"Practice" = "練習";
+"Recordings" = "録音";
+"All Pieces" = "全ての曲";
+"Preferences" = "設定";
+
+// Home
+"Average In Week" = "1주일 평균 연습시간";
+"Total Time" = "총 연습시간";
+"Random Review" = "랜덤 복습";
+"Start Now" = "지금 시작";
+
+// Settings
+"Appearence" = "デザイン";
+"Forced Dark Mode" = "強制ダークモード";
+"Primary Color" = "主な色";
+"Practice Shape" = "練習ピースの形";
+"General" = "一般";
+"Practice Shape Taptic" = "練習ピースのHaptic";
+"Information" = "情報";
+"Contact me" = "開発者に連絡";
+
+// PracticeView
+"Practice" = "練習";
+"Resume" = "スタート";
+"Pause" = "ストップ";
+
+// Alert
+"Are You Sure to Dismiss All the Progress?" = "本当に今までした練習を消しますか？";
+"This Will Unsave All the Changes You Have Made" = "練習をセーブするためには’セーブ’を押してください。";
+"OK" = "オッケー";
+"Cancel" = "キャンセル";
+"Save" = "セーブ";
+
+// All Pieces Add View
+"Piece Information" = "曲情報";
+"Title" = "タイトル";
+"Genre" = "ジャンル";
+"Artist" = "アーティスト";
+"Composer" = "作曲家";
+
+// All Pieces Detail View
+"Informations" = "情報";
+"Practice Time" = "練習時間";
+"Times Practiced" = "練習回数";
+
+// Recording Select Sheet
+"Select Song" = "録音した曲を選択";

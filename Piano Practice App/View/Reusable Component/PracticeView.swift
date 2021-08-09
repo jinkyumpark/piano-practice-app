@@ -109,7 +109,7 @@ struct PracticeView: View {
                 Spacer()
                 
             }
-            .navigationTitle("Practice : \(practiceSong.timesPracticed)")
+            .navigationTitle(settings.currentLanguage == "ko" ? "연습 횟수" : settings.currentLanguage == "ja" ? "練習回数":"Practice Times" + ": \(practiceSong.timesPracticed)")
             .navigationBarItems(leading: Button(action: {
                 showingCancelAlert.toggle()
             }, label: {

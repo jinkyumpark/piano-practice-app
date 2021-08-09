@@ -72,7 +72,7 @@ struct RecordingView: View {
                         ForEach(self.song.songData) { song in
                             Button(action: {
                                 self.audioRecorder.songIndex = self.song.songData.firstIndex(of: song) ?? 0
-                                presentationMode.wrappedValue.dismiss()
+                                selectSongPresented = false
                             }, label: {
                                 SongView(song: song)
                             })

@@ -26,7 +26,7 @@ struct SongView: View {
                     Text(song.title)
                         .font(.title)
                         .lineLimit(2)
-                        .minimumScaleFactor(0.6)
+                        .minimumScaleFactor(0.7)
                         .foregroundColor(settings.forcedDarkMode ? .white : systemColorScheme == .dark ? .white : .black)
 
                     Text("                                 ")
@@ -40,11 +40,5 @@ struct SongView: View {
             }
         }
         .padding()
-    }
-}
-
-struct SongView_Previews: PreviewProvider {
-    static var previews: some View {
-        SongView(song: dummySong[0])
     }
 }

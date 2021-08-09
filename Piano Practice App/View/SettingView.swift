@@ -17,7 +17,7 @@ struct SettingView: View {
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("Appearecne")) {
+                Section(header: Text("Appearence")) {
                     Toggle("Forced Dark Mode", isOn: $settings.forcedDarkMode)
                                         
                     Picker("Primary Color", selection: $settings.primaryColor) {

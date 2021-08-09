@@ -9,7 +9,11 @@ import SwiftUI
 
 struct AllPiecesDetailView: View {
     
+    @EnvironmentObject var audioRecorder: AudioRecorder
+    
     var song: Song
+    var songIndex: Int
+    @State var songRecordings = [Recording]()
     
     var body: some View {
         ScrollView{
@@ -29,12 +33,25 @@ struct AllPiecesDetailView: View {
                     RectangleView(color: Color.red, title: "Times Practiced", subtitle: "\(song.timesPracticed) Times")
                 }
                 
-                HStack {
-                    Text("Recordings")
-                        .padding()
-                        .font(.largeTitle)
+                Button(action: {
+                    for recording in audioRecorder.recordings {
+                        if recording.songIndex == songIndex {
+                            songRecordings.append(recording)
+                        }
+                    }
+                }) {
+                    HStack {
+                        Text("Recordings")
+                            .padding()
+                            .font(.largeTitle)
+                        Spacer()
+                    }
+                }
 
-                    Spacer()
+                VStack {
+                    ForEach(0..<songRecordings.count) { index in
+                        RecordingRow(audioURL: songRecordings[index].fileURL)
+                    }
                 }
 
                 Spacer()

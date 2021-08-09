@@ -16,12 +16,11 @@ struct AllPiecesView: View {
         ZStack {
             NavigationView {
                 List() {
-                    ForEach(song.songData) { song in
+                    ForEach(0..<song.songData.count) { index in
                         NavigationLink(
-                            destination: AllPiecesDetailView(song: song),
-                            label: {
-                                SongView(song: song)
-                            })
+                            destination: AllPiecesDetailView(song: song.songData[index], songIndex: index)) {
+                                SongView(song: song.songData[index])
+                            }
                     }
                     .onDelete(perform: deleteRows)
                 }

@@ -39,6 +39,8 @@ class Settings: ObservableObject {
         }
     }
     
+    @Published var currentLanguage = Locale.current.languageCode
+    
     init() {
         self.forcedDarkMode = UserDefaults.standard.bool(forKey: "forcedDarkMode")
         self.selectedPracticePiece = PracticePiece(

@@ -79,7 +79,7 @@ struct AllPiecesAddView: View {
                     .padding()
             })
             ,trailing: Button(action: {
-                let song = Song(title: self.pieceTitle, composer: self.composer, imageName: getImageName(composer: self.composer), genre: "", timesPracticed: 0, hourPracticed: 0)
+                let song = Song(title: self.pieceTitle != "" ? self.pieceTitle : "No Title", composer: self.composer != "" ? self.composer : "No Artist", imageName: getImageName(composer: self.composer), genre: "", timesPracticed: 0, hourPracticed: 0)
                 self.song.songData.append(song)
                 presentationMode.wrappedValue.dismiss()
             }, label: {

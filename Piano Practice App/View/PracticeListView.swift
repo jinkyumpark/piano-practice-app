@@ -29,9 +29,3 @@ struct PracticeListView: View {
         }
     }
 }
-
-struct PracticeListView_Previews: PreviewProvider {
-    static var previews: some View {
-        PracticeListView()
-    }
-}

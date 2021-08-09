@@ -10,5 +10,5 @@ import Foundation
 struct Recording {
     let fileURL: URL
     let createdAt: Date
-    let songIndex: Int
+    var songIndex: Int
 }

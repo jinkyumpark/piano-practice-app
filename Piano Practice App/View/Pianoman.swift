@@ -12,7 +12,6 @@ struct Pianoman: View {
     // TODO : Recording features
     // TODO : Save user song data to coreData
     // TODO : Update practiceHour/time accordingly
-    // TODO : Add custom textfield to addsongview
          
     @Environment(\.colorScheme) var systemColorScheme
     @EnvironmentObject var song: SongModel
@@ -26,7 +25,7 @@ struct Pianoman: View {
                     Text("Home")
                 }
             
-                PracticeListView()
+            PracticeListView()
                 .tabItem {
                     Image(systemName: "pencil")
                     Text("Practice")

@@ -21,6 +21,7 @@
 		1B38725D2695A9CC00A6A203 /* AllPiecesAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B38725C2695A9CC00A6A203 /* AllPiecesAddView.swift */; };
 		1B3872652695EDD100A6A203 /* PracticePiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3872642695EDD100A6A203 /* PracticePiece.swift */; };
 		1B38726726960F8200A6A203 /* RectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B38726626960F8200A6A203 /* RectangleView.swift */; };
+		1B62A96026C1177C009DDF59 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B62A96226C1177C009DDF59 /* Localizable.strings */; };
 		1BB79DCB269844E5006E8F05 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB79DCA269844E5006E8F05 /* Settings.swift */; };
 		1BC84BDB2693FF3C00684DA7 /* PracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC84BDA2693FF3C00684DA7 /* PracticeView.swift */; };
 		1BC84BDD2693FFB400684DA7 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC84BDC2693FFB400684DA7 /* Song.swift */; };
@@ -68,6 +69,9 @@
 		1B38725C2695A9CC00A6A203 /* AllPiecesAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPiecesAddView.swift; sourceTree = "<group>"; };
 		1B3872642695EDD100A6A203 /* PracticePiece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticePiece.swift; sourceTree = "<group>"; };
 		1B38726626960F8200A6A203 /* RectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleView.swift; sourceTree = "<group>"; };
+		1B62A96326C11784009DDF59 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1B62A96426C11AFF009DDF59 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1B62A96626C12063009DDF59 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1BB79DCA269844E5006E8F05 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		1BC84BDA2693FF3C00684DA7 /* PracticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeView.swift; sourceTree = "<group>"; };
 		1BC84BDC2693FFB400684DA7 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
@@ -157,14 +161,23 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		1BA1E21626BFB41D002A4D4A /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				1B065C8D26B6FCE9003F6A41 /* Recording */,
+				1B065C8726B6FCBD003F6A41 /* AudioRecorder.swift */,
+				1B065C9026B6FFFA003F6A41 /* AudioPlayer.swift */,
+				1B065C3F26B45644003F6A41 /* PhotoPicker.swift */,
+				1BF7777826A8396A00F99EC0 /* Queue.swift */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
 		1BB79DC22696D09B006E8F05 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				1BC84BDC2693FFB400684DA7 /* Song.swift */,
 				1B3872642695EDD100A6A203 /* PracticePiece.swift */,
-				1BF7777826A8396A00F99EC0 /* Queue.swift */,
-				1B065C3F26B45644003F6A41 /* PhotoPicker.swift */,
-				1B065C8D26B6FCE9003F6A41 /* Recording */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -206,6 +219,8 @@
 				1B38725B26957F8E00A6A203 /* View */,
 				1BB79DC22696D09B006E8F05 /* Model */,
 				1BF777FD26AFCC3000F99EC0 /* ViewModel */,
+				1BA1E21626BFB41D002A4D4A /* Features */,
+				1B62A96226C1177C009DDF59 /* Localizable.strings */,
 			);
 			path = "Piano Practice App";
 			sourceTree = "<group>";
@@ -215,8 +230,6 @@
 			children = (
 				1BF7780026AFCC4D00F99EC0 /* SongModel.swift */,
 				1BB79DCA269844E5006E8F05 /* Settings.swift */,
-				1B065C8726B6FCBD003F6A41 /* AudioRecorder.swift */,
-				1B065C9026B6FFFA003F6A41 /* AudioPlayer.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -306,6 +319,8 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
+				ja,
 			);
 			mainGroup = 1BDF85C225D7F4C700ABE572;
 			productRefGroup = 1BDF85CC25D7F4C700ABE572 /* Products */;
@@ -325,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BDF85D325D7F4C800ABE572 /* Assets.xcassets in Resources */,
+				1B62A96026C1177C009DDF59 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,11 +423,25 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		1B62A96226C1177C009DDF59 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1B62A96326C11784009DDF59 /* en */,
+				1B62A96426C11AFF009DDF59 /* ko */,
+				1B62A96626C12063009DDF59 /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		1BDF85EE25D7F4C800ABE572 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -473,6 +503,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -540,7 +571,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "jinkyumpark.Piano-Practice-App";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jinkpark.pianoman;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -563,7 +594,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "jinkyumpark.Piano-Practice-App";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jinkpark.pianoman;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

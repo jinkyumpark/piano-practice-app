@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct Piano_Practice_AppApp: App {
+struct Piano_Practice: App {
     var body: some Scene {
         WindowGroup {
             Pianoman()

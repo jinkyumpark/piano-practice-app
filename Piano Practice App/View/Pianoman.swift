@@ -14,7 +14,6 @@ struct Pianoman: View {
     // TODO : Update practiceHour/time accordingly
          
     @Environment(\.colorScheme) var systemColorScheme
-    @EnvironmentObject var song: SongModel
     @EnvironmentObject var settings: Settings
 
     var body: some View {

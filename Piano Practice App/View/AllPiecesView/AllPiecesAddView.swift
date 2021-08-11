@@ -14,9 +14,11 @@ struct AllPiecesAddView: View {
     @State var genre: String = ""
     @Environment(\.presentationMode) var presentationMode
     
-    @EnvironmentObject var song: SongModel
+//    @EnvironmentObject var song: SongModel
     @EnvironmentObject var settings: Settings
     @Environment(\.colorScheme) var systemColorScheme
+    
+    @Environment(\.managedObjectContext) private var viewContext
 
     let formatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -40,7 +42,7 @@ struct AllPiecesAddView: View {
                         showingPhotoPicker = true
                     }
 
-                Text(pieceTitle.isEmpty ? "Title" : pieceTitle)
+                Text(pieceTitle.isEmpty ? "Title":pieceTitle)
                     .font(.title)
                     .minimumScaleFactor(0.7)
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
@@ -54,7 +56,7 @@ struct AllPiecesAddView: View {
                     TextField("Title", text: $pieceTitle)
                     
                     Picker("Genre", selection: $genre) {
-                        ForEach(song.songGenre, id: \.self) {genre in
+                        ForEach(songGenre, id: \.self) {genre in
                             Text(genre)
                         }
                     }
@@ -79,8 +81,10 @@ struct AllPiecesAddView: View {
                     .padding()
             })
             ,trailing: Button(action: {
-                let song = Song(title: self.pieceTitle != "" ? self.pieceTitle : "No Title", composer: self.composer != "" ? self.composer : "No Artist", imageName: getImageName(composer: self.composer), genre: "", timesPracticed: 0, hourPracticed: 0)
-                self.song.songData.append(song)
+//                let song = Song(title: self.pieceTitle != "" ? self.pieceTitle : "No Title", composer: self.composer != "" ? self.composer : "No Artist", imageName: getImageName(composer: self.composer), genre: "", timesPracticed: 0, hourPracticed: 0)
+//                self.song.songData.append(song)
+                addSong(title: pieceTitle, composer: composer, genre: genre)
+                
                 presentationMode.wrappedValue.dismiss()
             }, label: {
                 Text("Save")
@@ -92,6 +96,19 @@ struct AllPiecesAddView: View {
             })
         }
         .environment(\.colorScheme, settings.forcedDarkMode ? .dark : systemColorScheme)
+    }
+    
+    private func addSong(title: String, composer: String, genre: String) {
+        let song = Song(context: viewContext)
+        song.title = title == "" ? "No Title" : title
+        song.composer = composer == "" ? "No Composer" : composer
+        song.imageName = getImageName(composer: composer)
+        song.genre = genre
+        do {
+            try viewContext.save()
+        } catch {
+//            fatalError()
+        }
     }
 }
 

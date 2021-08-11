@@ -12,9 +12,13 @@ struct SongView: View {
     @EnvironmentObject var settings: Settings
     @Environment(\.colorScheme) var systemColorScheme
     
+    let englishDefault = ["title":"Add Songs to Start!","composer":"Add Songs in 'All Pieces'"]
+    let koreanDefault = ["title":"곡 추가로 시작하세요!", "composer":"'모든 곡'에서 곡을 추가할 수 있습니다."]
+    let japaneseDefault = ["title":"曲を追加して始められます！", "composer":"’全ての曲’で曲を追加できます"]
+    
     var body: some View {
         HStack {
-            Image(song.imageName)
+            Image(song.imageName ?? "default")
                 .renderingMode(.original)
                 .resizable()
                 .scaledToFit()
@@ -23,7 +27,7 @@ struct SongView: View {
             
             VStack(alignment: .center, spacing: 0) {
                 ZStack {
-                    Text(song.title)
+                    Text(song.title ?? "")
                         .font(.title)
                         .lineLimit(2)
                         .minimumScaleFactor(0.7)
@@ -35,7 +39,7 @@ struct SongView: View {
 
                 }
                 
-                Text(song.composer)
+                Text(song.composer ?? "")
                     .foregroundColor(.secondary)
             }
         }

@@ -10,16 +10,19 @@ import SwiftUI
 struct AllPiecesView: View {
     
     @State var isPresented = false
-    @EnvironmentObject var song: SongModel
+//    @EnvironmentObject var song: SongModel
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(sortDescriptors: []) var songs: FetchedResults<Song>
+
     
     var body: some View {
         ZStack {
             NavigationView {
                 List() {
-                    ForEach(0..<song.songData.count) { index in
+                    ForEach(songs) { song in
                         NavigationLink(
-                            destination: AllPiecesDetailView(song: song.songData[index], songIndex: index)) {
-                                SongView(song: song.songData[index])
+                            destination: AllPiecesDetailView(song: song, songIndex: 0)) {
+                                SongView(song: song)
                             }
                     }
                     .onDelete(perform: deleteRows)
@@ -51,7 +54,12 @@ struct AllPiecesView: View {
     }
     
     func deleteRows(at offsets: IndexSet) {
-        song.songData.remove(atOffsets: offsets)
+        offsets.map {songs[$0]}.forEach(viewContext.delete)
+        do {
+            try viewContext.save()
+        } catch {
+            fatalError()
+        }
     }
 }
 

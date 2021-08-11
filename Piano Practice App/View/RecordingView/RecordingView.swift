@@ -20,9 +20,12 @@ struct RecordingView: View {
     @State var selectSongPresented: Bool = false
     
     @EnvironmentObject var audioRecorder: AudioRecorder
-    @EnvironmentObject var song: SongModel
+//    @EnvironmentObject var song: SongModel
     
     @Environment(\.presentationMode) var presentationMode
+    
+    @FetchRequest(sortDescriptors: []) var song: FetchedResults<Song>
+
     
     
     var body: some View {
@@ -69,9 +72,9 @@ struct RecordingView: View {
             .sheet(isPresented: $selectSongPresented, content: {
                 NavigationView {
                     List() {
-                        ForEach(self.song.songData) { song in
+                        ForEach(song) { song in
                             Button(action: {
-                                self.audioRecorder.songIndex = self.song.songData.firstIndex(of: song) ?? 0
+//                                self.audioRecorder.songIndex = self.song.songData.firstIndex(of: song) ?? 0
                                 selectSongPresented = false
                             }, label: {
                                 SongView(song: song)

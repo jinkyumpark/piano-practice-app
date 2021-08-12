@@ -18,51 +18,55 @@ struct PracticeListView: View {
     @State var showingPracticeView: Bool = false
 
     var body: some View {
-        GeometryReader { geo in
-            NavigationView {
-                VStack(spacing: 0) {
-                    TabView {
-                        ForEach(0..<songs.count) { index in
-                            ZStack {
-                                Rectangle()
-                                    .background(Color.white)
+        NavigationView {
+            VStack {
+                GeometryReader { geo in
+                TabView {
+                    ForEach(0..<songs.count) { index in
+                        ZStack {
+                            Rectangle()
+                                .fill(Color.white)
+                            
+                            VStack {
+                                Image(songs[index].imageName ?? "default")
+                                    .resizable()
+                                    .cornerRadius(20)
+                                    .frame(width: geo.size.width - 150, height: geo.size.width - 150)
+                                    .aspectRatio(contentMode: .fit)
+                                    .padding()
+                                                                    
+                                Text(songs[index].title ?? "No Title")
+                                    .font(.largeTitle)
                                 
-                                VStack { 
-                                    Image(songs[index].imageName ?? "default")
-                                        .resizable()
-                                        .cornerRadius(20)
-                                        .frame(width: geo.size.width - 150, height: geo.size.width - 150)
-                                        .aspectRatio(contentMode: .fit)
-                                        .padding()
-                                                                        
-                                    Text(songs[index].title ?? "No Title")
-                                        .foregroundColor(.white)
-                                        .font(.largeTitle)
-                                    
-                                    Text(songs[index].composer ?? "No Composer")
-                                        .foregroundColor(.white)
-                                        .font(.title2)
-                                    
-                                    Spacer()
-                                    
-                                }
-                            }
-                            .frame(width: geo.size.width - 80, height: geo.size.height - 250)
-                            .cornerRadius(20)
-                            .shadow(radius: 20)
-                            .onTapGesture {
-                                showingPracticeView.toggle()
-                            }
-                            .sheet(isPresented: $showingPracticeView) {
-                                PracticeView(practiceSong: songs[index], timerStartAutomatic: true, showingButtons: true)
+                                Text(songs[index].composer ?? "No Composer")
+                                    .font(.title2)
+                                
+                                Spacer()
+                                
                             }
                         }
+                        .frame(width: geo.size.width - 80, height: geo.size.height - 200)
+                        .cornerRadius(20)
+                        .shadow(radius: 10)
+                        .onTapGesture {
+                            showingPracticeView.toggle()
+                        }
+                        .sheet(isPresented: $showingPracticeView) {
+                            PracticeView(practiceSong: songs[index], timerStartAutomatic: true, showingButtons: true)
+                        }
                     }
-                    .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
-                    .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
                 }
-                .navigationTitle("Practice")
+                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+                .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+//                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: geo.size.height - 200)
+//                .onAppear() {
+//                        UITabBar.appearance().barTintColor = .white
+//                }
+                
+
+                }
             }
+                .navigationTitle("Practice")
         }
     }
 }

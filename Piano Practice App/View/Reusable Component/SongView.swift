@@ -27,7 +27,7 @@ struct SongView: View {
             
             VStack(alignment: .center, spacing: 0) {
                 ZStack {
-                    Text(song.title ?? "")
+                    Text(song.title ?? settings.currentLanguage == "ko" ? koreanDefault["title"]! : settings.currentLanguage == "ja" ? japaneseDefault["title"]!:englishDefault["title"]!)
                         .font(.title)
                         .lineLimit(2)
                         .minimumScaleFactor(0.7)
@@ -39,7 +39,7 @@ struct SongView: View {
 
                 }
                 
-                Text(song.composer ?? "")
+                Text(song.composer ?? settings.currentLanguage == "ko" ? koreanDefault["composer"]! : settings.currentLanguage == "ja" ? japaneseDefault["composer"]!:englishDefault["composer"]!)
                     .foregroundColor(.secondary)
             }
         }

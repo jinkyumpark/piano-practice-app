@@ -84,7 +84,6 @@ struct AllPiecesAddView: View {
 //                let song = Song(title: self.pieceTitle != "" ? self.pieceTitle : "No Title", composer: self.composer != "" ? self.composer : "No Artist", imageName: getImageName(composer: self.composer), genre: "", timesPracticed: 0, hourPracticed: 0)
 //                self.song.songData.append(song)
                 addSong(title: pieceTitle, composer: composer, genre: genre)
-                
                 presentationMode.wrappedValue.dismiss()
             }, label: {
                 Text("Save")
@@ -107,15 +106,7 @@ struct AllPiecesAddView: View {
         do {
             try viewContext.save()
         } catch {
-//            fatalError()
+            fatalError()
         }
-    }
-}
-
-struct AllPiecesAddView_Previews: PreviewProvider {
-    static var previews: some View {
-        AllPiecesAddView()
-            .environmentObject(SongModel())
-            .environmentObject(Settings())
     }
 }

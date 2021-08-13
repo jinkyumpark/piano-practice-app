@@ -15,40 +15,67 @@ struct Pianoman: View {
          
     @Environment(\.colorScheme) var systemColorScheme
     @EnvironmentObject var settings: Settings
+    
+//    @State private var tappedTwice: Bool = false
+    @State private var tabSelection = 1
+//    var handler: Binding<Int> { Binding(
+//        get: {self.tabSelection},
+//        set: {
+//            if $0 == self.tabSelection {
+//                tappedTwice = true
+//            }
+//            self.tabSelection = $0
+//    })}
 
     var body: some View {
-        TabView {
-            HomeView()
-                .tabItem {
-                    Image(systemName: "house.fill")
-                    Text("Home")
-                }
-            
-            PracticeListView()
-                .tabItem {
-                    Image(systemName: "pencil")
-                    Text("Practice")
-                }
+        ScrollViewReader { proxy in
+            TabView() {
+                HomeView()
+                    .tabItem {
+                        Image(systemName: "house.fill")
+                        Text("Home")
+                    }
+                    .tag(1)
+                
+                PracticeListView()
+                    .tabItem {
+                        Image(systemName: "pencil")
+                        Text("Practice")
+                    }
+                    .tag(2)
 
-            RecordingView()
-                .tabItem {
-                    Image(systemName: "record.circle.fill")
-                    Text("Recordings")
-                }
-            
-            AllPiecesView()
-                .tabItem {
-                    Image(systemName: "music.note.list")
-                    Text("All Pieces")
-                }
-            
-            SettingView()
-                .tabItem {
-                    Image(systemName: "gearshape.fill")
-                    Text("Preferences")
-                }
+                RecordingView()
+                    .tabItem {
+                        Image(systemName: "record.circle.fill")
+                        Text("Recordings")
+                    }
+                    .tag(3)
+                
+                AllPiecesView()
+                    .tabItem {
+                        Image(systemName: "music.note.list")
+                        Text("All Pieces")
+                    }
+                    .tag(4)
+//                    .id(4)
+//                    .onChange(of: tappedTwice, perform: {tapped in
+//                        if tapped {
+//                            withAnimation {
+//                                proxy.scrollTo(4)
+//                            }
+//                            tappedTwice = false
+//                        }
+//                    })
+                
+                SettingView()
+                    .tabItem {
+                        Image(systemName: "gearshape.fill")
+                        Text("Preferences")
+                    }
+                    .tag(5)
+            }
+            .accentColor(settings.primaryColor)
+            .environment(\.colorScheme, settings.forcedDarkMode ? .dark : systemColorScheme)
         }
-        .accentColor(settings.primaryColor)
-        .environment(\.colorScheme, settings.forcedDarkMode ? .dark : systemColorScheme)
     }
 }

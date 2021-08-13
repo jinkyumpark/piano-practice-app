@@ -25,8 +25,6 @@ struct RecordingView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @FetchRequest(sortDescriptors: []) var song: FetchedResults<Song>
-
-    
     
     var body: some View {
         NavigationView {

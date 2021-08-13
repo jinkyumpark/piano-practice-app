@@ -12,7 +12,7 @@ struct AllPiecesView: View {
     @State var isPresented = false
 //    @EnvironmentObject var song: SongModel
     @Environment(\.managedObjectContext) private var viewContext
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "title", ascending: true)]) var songs: FetchedResults<Song>
+    @FetchRequest(sortDescriptors: []) var songs: FetchedResults<Song>
     @State var filteredSong = [Song]()
     @State var searchText = ""
 

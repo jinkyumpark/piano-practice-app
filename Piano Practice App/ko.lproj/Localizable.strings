@@ -41,6 +41,9 @@
 "Cancel" = "취소";
 "Save" = "저장";
 
+// All Pieces View
+"Search Songs" = "곡 검색";
+
 // All Pieces Add View
 "Piece Information" = "곡 정보";
 "Title" = "제목";

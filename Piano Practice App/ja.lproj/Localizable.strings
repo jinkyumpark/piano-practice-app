@@ -41,6 +41,9 @@
 "Cancel" = "キャンセル";
 "Save" = "セーブ";
 
+// All Pieces View
+"Search Songs" = "曲検索";
+
 // All Pieces Add View
 "Piece Information" = "曲情報";
 "Title" = "タイトル";

@@ -33,6 +33,7 @@
 "Practice" = "연습";
 "Resume" = "시작";
 "Pause" = "정지";
+"Recent" = "최근 곡";
 
 // Alert
 "Are You Sure to Dismiss All the Progress?" = "정말로 여태까지의 연습을 지우시겠습니까?";

@@ -33,6 +33,8 @@
 "Practice" = "練習";
 "Resume" = "スタート";
 "Pause" = "ストップ";
+"Recent" = "最近の曲";
+
 
 // Alert
 "Are You Sure to Dismiss All the Progress?" = "本当に今までした練習を消しますか？";

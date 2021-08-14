@@ -116,6 +116,7 @@ struct PracticeView: View {
                 Text(showingButtons ? "Cancel" : "")
                 }), trailing: Button(action: {
 //                    song.totalPracticeTime += Double(currentTime / 60 / 60)
+                    Song.mainSelectedSong = practiceSong
                     presentationMode.wrappedValue.dismiss()
                 }, label: {
                     Text(showingButtons ? "Save" : "")

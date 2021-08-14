@@ -9,7 +9,6 @@ import SwiftUI
 
 @main
 struct Piano_Practice: App {
-    @Environment(\.scenePhase) var scenePhase
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {

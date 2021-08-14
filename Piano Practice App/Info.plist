@@ -36,7 +36,7 @@
 		<key>UIColorName</key>
 		<string>Red</string>
 		<key>UIImageName</key>
-		<string>􀟽</string>
+		<string>pianokeys.inverse</string>
 	</dict>
 	<key>UILaunchStoryboardName</key>
 	<string>Launch Screen</string>

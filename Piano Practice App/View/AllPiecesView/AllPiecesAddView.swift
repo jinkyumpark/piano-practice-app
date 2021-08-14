@@ -81,8 +81,6 @@ struct AllPiecesAddView: View {
                     .padding()
             })
             ,trailing: Button(action: {
-//                let song = Song(title: self.pieceTitle != "" ? self.pieceTitle : "No Title", composer: self.composer != "" ? self.composer : "No Artist", imageName: getImageName(composer: self.composer), genre: "", timesPracticed: 0, hourPracticed: 0)
-//                self.song.songData.append(song)
                 addSong(title: pieceTitle, composer: composer, genre: genre, image: (defaultImage != nil ? defaultImage! : UIImage(named: getImageName(composer: composer))!))
                 presentationMode.wrappedValue.dismiss()
             }, label: {
@@ -108,7 +106,7 @@ struct AllPiecesAddView: View {
         do {
             try viewContext.save()
         } catch {
-            fatalError()
+//            fatalError()
         }
     }
 }

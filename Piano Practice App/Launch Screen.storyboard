@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -11,36 +11,37 @@
         <scene sceneID="EHf-IW-A2E">
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="g5I-WM-Xib"/>
+                        <viewControllerLayoutGuide type="bottom" id="cpv-pv-Xvc"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PianoMan LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="eFN-D9-Pce">
-                                <rect key="frame" x="-128" y="0.0" width="670" height="970"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QtJ-bV-Eae" userLabel="Background">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="obG-Y5-kRd">
-                                <rect key="frame" x="0.0" y="876" width="414" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="PianoMan" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="GJd-Yh-RWb">
-                                <rect key="frame" x="124" y="303" width="166" height="43"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pianokeys.inverse" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Qr6-y8-c3n">
+                                <rect key="frame" x="38" y="324" width="338" height="249"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="centerX" secondItem="obG-Y5-kRd" secondAttribute="centerX" id="5cz-MP-9tL"/>
-                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="centerX" secondItem="GJd-Yh-RWb" secondAttribute="centerX" id="Q3B-4B-g5h"/>
-                            <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" symbolic="YES" id="SfN-ll-jLj"/>
-                            <constraint firstAttribute="bottom" secondItem="obG-Y5-kRd" secondAttribute="bottom" constant="20" id="Y44-ml-fuU"/>
-                            <constraint firstItem="GJd-Yh-RWb" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="bottom" multiplier="1/3" constant="1" id="moa-c2-u7t"/>
-                            <constraint firstItem="GJd-Yh-RWb" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" symbolic="YES" id="x7j-FC-K8j"/>
+                            <constraint firstItem="cpv-pv-Xvc" firstAttribute="top" secondItem="Qr6-y8-c3n" secondAttribute="bottom" constant="287.5" id="Csh-QU-ZFG"/>
+                            <constraint firstItem="Qr6-y8-c3n" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" constant="279" id="Cye-x9-ER8"/>
+                            <constraint firstItem="QtJ-bV-Eae" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Gj5-WV-65J"/>
+                            <constraint firstItem="Qr6-y8-c3n" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="18" id="Poy-uO-1bS"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="QtJ-bV-Eae" secondAttribute="bottom" id="afr-b1-lTQ"/>
+                            <constraint firstItem="QtJ-bV-Eae" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="huU-6F-BIr"/>
+                            <constraint firstAttribute="trailing" secondItem="QtJ-bV-Eae" secondAttribute="trailing" id="iKt-gs-fob"/>
+                            <constraint firstItem="QtJ-bV-Eae" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="idY-ak-hqF"/>
+                            <constraint firstItem="QtJ-bV-Eae" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" id="l1F-Zi-xXY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QtJ-bV-Eae" secondAttribute="trailing" id="v9a-9x-JTc"/>
+                            <constraint firstAttribute="bottom" secondItem="QtJ-bV-Eae" secondAttribute="bottom" id="zX1-qd-gl9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Qr6-y8-c3n" secondAttribute="trailing" constant="18" id="zsA-2a-h91"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -50,6 +51,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="PianoMan LaunchScreen" width="1125" height="2436"/>
+        <image name="pianokeys.inverse" catalog="system" width="128" height="93"/>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

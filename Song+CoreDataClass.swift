@@ -11,5 +11,6 @@ import CoreData
 
 @objc(Song)
 public class Song: NSManagedObject {
+    
     static var mainSelectedSong: Song?
 }

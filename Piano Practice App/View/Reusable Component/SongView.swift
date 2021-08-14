@@ -18,7 +18,7 @@ struct SongView: View {
     
     var body: some View {
         HStack {
-            Image(song.imageName ?? "default")
+            Image(uiImage: (UIImage(data: song.image ?? Data()) ?? UIImage(named: "default")!))
                 .renderingMode(.original)
                 .resizable()
                 .scaledToFit()

@@ -32,7 +32,7 @@ struct AllPiecesAddView: View {
     var body: some View {
         NavigationView {
             Form {
-                Image(uiImage: defaultImage != nil ? defaultImage! : UIImage(imageLiteralResourceName: getImageName(composer: composer)))
+                Image(uiImage: (defaultImage != nil ? defaultImage! : UIImage(named: getImageName(composer: composer))!))
                     .resizable()
                     .frame(width: 90, height: 90)
                     .cornerRadius(20)
@@ -83,7 +83,7 @@ struct AllPiecesAddView: View {
             ,trailing: Button(action: {
 //                let song = Song(title: self.pieceTitle != "" ? self.pieceTitle : "No Title", composer: self.composer != "" ? self.composer : "No Artist", imageName: getImageName(composer: self.composer), genre: "", timesPracticed: 0, hourPracticed: 0)
 //                self.song.songData.append(song)
-                addSong(title: pieceTitle, composer: composer, genre: genre)
+                addSong(title: pieceTitle, composer: composer, genre: genre, image: (defaultImage != nil ? defaultImage! : UIImage(named: getImageName(composer: composer))!))
                 presentationMode.wrappedValue.dismiss()
             }, label: {
                 Text("Save")
@@ -97,12 +97,14 @@ struct AllPiecesAddView: View {
         .environment(\.colorScheme, settings.forcedDarkMode ? .dark : systemColorScheme)
     }
     
-    private func addSong(title: String, composer: String, genre: String) {
+    private func addSong(title: String, composer: String, genre: String, image: UIImage) {
         let song = Song(context: viewContext)
         song.title = title == "" ? "No Title" : title
         song.composer = composer == "" ? "No Composer" : composer
-        song.imageName = getImageName(composer: composer)
+//        song.imageName = getImageName(composer: composer)
         song.genre = genre
+        let imageData = image.pngData()
+        song.image = imageData
         do {
             try viewContext.save()
         } catch {

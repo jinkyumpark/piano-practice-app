@@ -41,23 +41,6 @@
 		1BF7780126AFCC4D00F99EC0 /* SongModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF7780026AFCC4D00F99EC0 /* SongModel.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		1BDF85DD25D7F4C800ABE572 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1BDF85C325D7F4C700ABE572 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1BDF85CA25D7F4C700ABE572;
-			remoteInfo = "Piano Practice App";
-		};
-		1BDF85E825D7F4C800ABE572 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1BDF85C325D7F4C700ABE572 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1BDF85CA25D7F4C700ABE572;
-			remoteInfo = "Piano Practice App";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		1B01373326BCEFB0007AA276 /* PracticeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeListView.swift; sourceTree = "<group>"; };
 		1B065C3F26B45644003F6A41 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
@@ -89,8 +72,6 @@
 		1BDF85D025D7F4C700ABE572 /* Pianoman.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pianoman.swift; sourceTree = "<group>"; };
 		1BDF85D225D7F4C800ABE572 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1BDF85D725D7F4C800ABE572 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1BDF85DC25D7F4C800ABE572 /* Piano Practice AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Piano Practice AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1BDF85E725D7F4C800ABE572 /* Piano Practice AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Piano Practice AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BDF85FC25D7F50F00ABE572 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		1BDF860425D7F64400ABE572 /* AllPiecesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPiecesView.swift; sourceTree = "<group>"; };
 		1BDF860925D7F6DA00ABE572 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
@@ -101,20 +82,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		1BDF85C825D7F4C700ABE572 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1BDF85D925D7F4C800ABE572 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1BDF85E425D7F4C800ABE572 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -213,8 +180,6 @@
 			isa = PBXGroup;
 			children = (
 				1BDF85CB25D7F4C700ABE572 /* Piano Practice App.app */,
-				1BDF85DC25D7F4C800ABE572 /* Piano Practice AppTests.xctest */,
-				1BDF85E725D7F4C800ABE572 /* Piano Practice AppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -266,42 +231,6 @@
 			productReference = 1BDF85CB25D7F4C700ABE572 /* Piano Practice App.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1BDF85DB25D7F4C800ABE572 /* Piano Practice AppTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1BDF85F325D7F4C800ABE572 /* Build configuration list for PBXNativeTarget "Piano Practice AppTests" */;
-			buildPhases = (
-				1BDF85D825D7F4C800ABE572 /* Sources */,
-				1BDF85D925D7F4C800ABE572 /* Frameworks */,
-				1BDF85DA25D7F4C800ABE572 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				1BDF85DE25D7F4C800ABE572 /* PBXTargetDependency */,
-			);
-			name = "Piano Practice AppTests";
-			productName = "Piano Practice AppTests";
-			productReference = 1BDF85DC25D7F4C800ABE572 /* Piano Practice AppTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		1BDF85E625D7F4C800ABE572 /* Piano Practice AppUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1BDF85F625D7F4C800ABE572 /* Build configuration list for PBXNativeTarget "Piano Practice AppUITests" */;
-			buildPhases = (
-				1BDF85E325D7F4C800ABE572 /* Sources */,
-				1BDF85E425D7F4C800ABE572 /* Frameworks */,
-				1BDF85E525D7F4C800ABE572 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				1BDF85E925D7F4C800ABE572 /* PBXTargetDependency */,
-			);
-			name = "Piano Practice AppUITests";
-			productName = "Piano Practice AppUITests";
-			productReference = 1BDF85E725D7F4C800ABE572 /* Piano Practice AppUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -313,14 +242,6 @@
 				TargetAttributes = {
 					1BDF85CA25D7F4C700ABE572 = {
 						CreatedOnToolsVersion = 12.4;
-					};
-					1BDF85DB25D7F4C800ABE572 = {
-						CreatedOnToolsVersion = 12.4;
-						TestTargetID = 1BDF85CA25D7F4C700ABE572;
-					};
-					1BDF85E625D7F4C800ABE572 = {
-						CreatedOnToolsVersion = 12.4;
-						TestTargetID = 1BDF85CA25D7F4C700ABE572;
 					};
 				};
 			};
@@ -340,8 +261,6 @@
 			projectRoot = "";
 			targets = (
 				1BDF85CA25D7F4C700ABE572 /* Piano Practice App */,
-				1BDF85DB25D7F4C800ABE572 /* Piano Practice AppTests */,
-				1BDF85E625D7F4C800ABE572 /* Piano Practice AppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -354,20 +273,6 @@
 				1B175A9B26C79EFA00AEE968 /* Launch Screen.storyboard in Resources */,
 				1BDF85D325D7F4C800ABE572 /* Assets.xcassets in Resources */,
 				1B62A96026C1177C009DDF59 /* Localizable.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1BDF85DA25D7F4C800ABE572 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1BDF85E525D7F4C800ABE572 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,34 +315,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1BDF85D825D7F4C800ABE572 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1BDF85E325D7F4C800ABE572 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		1BDF85DE25D7F4C800ABE572 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1BDF85CA25D7F4C700ABE572 /* Piano Practice App */;
-			targetProxy = 1BDF85DD25D7F4C800ABE572 /* PBXContainerItemProxy */;
-		};
-		1BDF85E925D7F4C800ABE572 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1BDF85CA25D7F4C700ABE572 /* Piano Practice App */;
-			targetProxy = 1BDF85E825D7F4C800ABE572 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1B62A96226C1177C009DDF59 /* Localizable.strings */ = {
@@ -617,90 +495,6 @@
 			};
 			name = Release;
 		};
-		1BDF85F425D7F4C800ABE572 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VXEUQDR462;
-				INFOPLIST_FILE = "Piano Practice AppTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "jinkyumpark.Piano-Practice-AppTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Piano Practice App.app/Piano Practice App";
-			};
-			name = Debug;
-		};
-		1BDF85F525D7F4C800ABE572 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VXEUQDR462;
-				INFOPLIST_FILE = "Piano Practice AppTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "jinkyumpark.Piano-Practice-AppTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Piano Practice App.app/Piano Practice App";
-			};
-			name = Release;
-		};
-		1BDF85F725D7F4C800ABE572 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VXEUQDR462;
-				INFOPLIST_FILE = "Piano Practice AppUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "jinkyumpark.Piano-Practice-AppUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Piano Practice App";
-			};
-			name = Debug;
-		};
-		1BDF85F825D7F4C800ABE572 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VXEUQDR462;
-				INFOPLIST_FILE = "Piano Practice AppUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "jinkyumpark.Piano-Practice-AppUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Piano Practice App";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -718,24 +512,6 @@
 			buildConfigurations = (
 				1BDF85F125D7F4C800ABE572 /* Debug */,
 				1BDF85F225D7F4C800ABE572 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1BDF85F325D7F4C800ABE572 /* Build configuration list for PBXNativeTarget "Piano Practice AppTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1BDF85F425D7F4C800ABE572 /* Debug */,
-				1BDF85F525D7F4C800ABE572 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1BDF85F625D7F4C800ABE572 /* Build configuration list for PBXNativeTarget "Piano Practice AppUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1BDF85F725D7F4C800ABE572 /* Debug */,
-				1BDF85F825D7F4C800ABE572 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

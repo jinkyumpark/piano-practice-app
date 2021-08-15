@@ -84,7 +84,7 @@ struct PracticeCardView: View {
                         .foregroundColor(settings.forcedDarkMode ? .white : systemColorScheme == .dark ? .white : .black)
 
                     }
-                    .frame(width: geo.size.width - 80, height: geo.size.height - 200)
+                    .frame(width: geo.size.width - 80, height: geo.size.height - 150)
                     .cornerRadius(20)
                     .shadow(radius: 10)
                     .onTapGesture {

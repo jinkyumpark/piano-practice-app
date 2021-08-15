@@ -29,23 +29,10 @@ struct AllPiecesDetailView: View {
                 }
                 
                 HStack {
-                    RectangleView(color: Color.blue, title: "Practice Time", subtitle: "\(song.hourPracticed) Hour")
-                    RectangleView(color: Color.red, title: "Times Practiced", subtitle: "\(song.timesPracticed) Times")
-                }
-                
-                Button(action: {
-                    for recording in audioRecorder.recordings {
-                        if recording.songIndex == songIndex {
-                            songRecordings.append(recording)
-                        }
-                    }
-                }) {
-                    HStack {
-                        Text("Recordings")
-                            .padding()
-                            .font(.largeTitle)
-                        Spacer()
-                    }
+                    Text("Recordings")
+                        .padding()
+                        .font(.largeTitle)
+                    Spacer()
                 }
 
                 VStack {

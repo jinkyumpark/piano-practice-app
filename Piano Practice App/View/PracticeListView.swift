@@ -73,10 +73,10 @@ struct PracticeCardView: View {
                                 .aspectRatio(contentMode: .fit)
                                 .padding()
 
-                            Text(songs[index].title ?? "No Title")
+                            Text(songs[index].title)
                                 .font(.largeTitle)
 
-                            Text(songs[index].composer ?? "No Composer")
+                            Text(songs[index].composer)
                                 .font(.title2)
 
                             Spacer()

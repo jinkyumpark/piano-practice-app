@@ -34,12 +34,8 @@
                             <constraint firstItem="Qr6-y8-c3n" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" constant="279" id="Cye-x9-ER8"/>
                             <constraint firstItem="QtJ-bV-Eae" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Gj5-WV-65J"/>
                             <constraint firstItem="Qr6-y8-c3n" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="18" id="Poy-uO-1bS"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="QtJ-bV-Eae" secondAttribute="bottom" id="afr-b1-lTQ"/>
                             <constraint firstItem="QtJ-bV-Eae" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="huU-6F-BIr"/>
                             <constraint firstAttribute="trailing" secondItem="QtJ-bV-Eae" secondAttribute="trailing" id="iKt-gs-fob"/>
-                            <constraint firstItem="QtJ-bV-Eae" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="idY-ak-hqF"/>
-                            <constraint firstItem="QtJ-bV-Eae" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" id="l1F-Zi-xXY"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="QtJ-bV-Eae" secondAttribute="trailing" id="v9a-9x-JTc"/>
                             <constraint firstAttribute="bottom" secondItem="QtJ-bV-Eae" secondAttribute="bottom" id="zX1-qd-gl9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Qr6-y8-c3n" secondAttribute="trailing" constant="18" id="zsA-2a-h91"/>
                         </constraints>

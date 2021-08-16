@@ -29,16 +29,16 @@ struct AllPiecesDetailView: View {
                 }
                 
                 HStack {
+                    RectangleView(color: Color.red, title: "Practice Hour", subtitle: "10 H")
+                    RectangleView(color: Color.blue, title: "Practice Time", subtitle: "10 H")
+
+                }
+                
+                HStack {
                     Text("Recordings")
                         .padding()
                         .font(.largeTitle)
                     Spacer()
-                }
-
-                VStack {
-                    ForEach(0..<songRecordings.count) { index in
-                        RecordingRow(audioURL: songRecordings[index].fileURL)
-                    }
                 }
 
                 Spacer()

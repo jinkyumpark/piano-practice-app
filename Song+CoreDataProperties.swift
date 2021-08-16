@@ -10,22 +10,18 @@ import Foundation
 import CoreData
 
 
-extension Song {
+extension Song: Identifiable {    
 
     @nonobjc public class func songFetchRequest() -> NSFetchRequest<Song> {
         return NSFetchRequest<Song>(entityName: "Song")
     }
 
-    @NSManaged public var composer: String?
+    @NSManaged public var composer: String
     @NSManaged public var genre: String?
     @NSManaged public var hourPracticed: Double
     @NSManaged public var id: UUID?
     @NSManaged public var image: Data?
     @NSManaged public var timesPracticed: Int64
-    @NSManaged public var title: String?
-
-}
-
-extension Song : Identifiable {
+    @NSManaged public var title: String
 
 }

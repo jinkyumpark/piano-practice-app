@@ -27,7 +27,7 @@ struct HomeView: View {
             VStack{
 //                Picker(selection: $song.mainSelectedSong, label: SongView(song: song.mainSelectedSong)) {
 //                    ForEach(song.songData) { songData in
-                SongView(song: Song.mainSelectedSong ?? Song(context: viewContext))
+                SongView(song: Song.mainSelectedSong ?? song[0])
 //                    }
 //                }
 //                .pickerStyle(InlinePickerStyle())
@@ -48,8 +48,8 @@ struct HomeView: View {
                     
                     HStack {
                         Button {
-                            showingSheetReview.toggle()
                             songIndex = Int.random(in: 0..<song.count)
+                            showingSheetReview.toggle()
                         } label: {
                             RectanglePlayView(color: Color.yellow, title: settings.currentLanguage == "ko" ? "렌덤 복습" : settings.currentLanguage == "ja" ? "ランダム復習":"Random Review", subImage: "play.circle.fill")
                         }
@@ -63,7 +63,7 @@ struct HomeView: View {
                             RectanglePlayView(color: Color.red, title: settings.currentLanguage == "ko" ? "바로 시작" : settings.currentLanguage == "ja" ? "すぐにスタート":"Start Now", subImage: "play.fill")
                         }
                         .sheet(isPresented: $showingSheetStart) {
-                            PracticeView(practiceSong: Song.mainSelectedSong ?? Song(context: viewContext), timerStartAutomatic: true, showingButtons: true)
+                            PracticeView(practiceSong: Song.mainSelectedSong ?? song[0], timerStartAutomatic: true, showingButtons: true)
                         }
                     }
                 }

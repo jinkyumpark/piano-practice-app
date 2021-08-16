@@ -103,10 +103,11 @@ struct AllPiecesAddView: View {
         song.genre = genre
         let imageData = image.pngData()
         song.image = imageData
+        song.id = UUID()
         do {
             try viewContext.save()
         } catch {
-//            fatalError()
+            fatalError(error.localizedDescription)
         }
     }
 }

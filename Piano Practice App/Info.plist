@@ -23,7 +23,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>We need access to your microphone to store recording of our play.</string>
+	<string>We need access to your microphone to store recording of your play.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -32,12 +32,7 @@
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchScreen</key>
-	<dict>
-		<key>UIColorName</key>
-		<string>Red</string>
-		<key>UIImageName</key>
-		<string>pianokeys.inverse</string>
-	</dict>
+	<dict/>
 	<key>UILaunchStoryboardName</key>
 	<string>Launch Screen</string>
 	<key>UIRequiredDeviceCapabilities</key>

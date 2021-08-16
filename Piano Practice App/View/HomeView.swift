@@ -16,9 +16,9 @@ struct HomeView: View {
 //    @EnvironmentObject var song: SongModel
     @EnvironmentObject var settings: Settings
     @EnvironmentObject var audioRecorder: AudioRecorder
+    @EnvironmentObject var songModel: SongModel
     
     @Environment(\.managedObjectContext) private var viewContext
-    
     @FetchRequest(sortDescriptors: []) var song: FetchedResults<Song>
 
     
@@ -27,7 +27,7 @@ struct HomeView: View {
             VStack{
 //                Picker(selection: $song.mainSelectedSong, label: SongView(song: song.mainSelectedSong)) {
 //                    ForEach(song.songData) { songData in
-                SongView(song: Song.mainSelectedSong ?? song[0])
+                SongView(song: songModel.mainSelectedSong ?? song[0])
 //                    }
 //                }
 //                .pickerStyle(InlinePickerStyle())
@@ -41,9 +41,9 @@ struct HomeView: View {
                 
                 VStack {
                     HStack {
-                        RectangleView(color: Color.blue, title: settings.currentLanguage == "ko" ? "일주일 평균" : settings.currentLanguage == "ja" ? "一週間平均":"Average In Week", subtitle: String(Song.mainSelectedSong?.hourPracticed ?? 0) + " H")
+                        RectangleView(color: Color.blue, title: settings.currentLanguage == "ko" ? "일주일 평균" : settings.currentLanguage == "ja" ? "一週間平均":"Average In Week", subtitle: String(songModel.mainSelectedSong?.hourPracticed ?? 0) + " H")
                         
-                        RectangleView(color: Color.blue, title: settings.currentLanguage == "ko" ? "전체 연습 시간" : settings.currentLanguage == "ja" ? "全体平均":"Total Time", subtitle: String(Song.mainSelectedSong?.timesPracticed ?? 0) + " H")
+                        RectangleView(color: Color.blue, title: settings.currentLanguage == "ko" ? "전체 연습 시간" : settings.currentLanguage == "ja" ? "全体平均":"Total Time", subtitle: String(songModel.totalPracticeTime) + " H")
                     }
                     
                     HStack {
@@ -63,7 +63,7 @@ struct HomeView: View {
                             RectanglePlayView(color: Color.red, title: settings.currentLanguage == "ko" ? "바로 시작" : settings.currentLanguage == "ja" ? "すぐにスタート":"Start Now", subImage: "play.fill")
                         }
                         .sheet(isPresented: $showingSheetStart) {
-                            PracticeView(practiceSong: Song.mainSelectedSong ?? song[0], timerStartAutomatic: true, showingButtons: true)
+                            PracticeView(practiceSong: songModel.mainSelectedSong ?? song[0], timerStartAutomatic: true, showingButtons: true)
                         }
                     }
                 }

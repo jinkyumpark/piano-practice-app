@@ -31,9 +31,3 @@ struct RectanglePlayView: View {
         }
     }
 }
-
-struct RectanglePlayView_Previews: PreviewProvider {
-    static var previews: some View {
-        RectanglePlayView(color: Color.red, title: "Play", subImage: "play")
-    }
-}

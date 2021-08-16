@@ -8,8 +8,9 @@
 
 import Foundation
 import CoreData
+import SwiftUI
 
 @objc(Song)
 public class Song: NSManagedObject {
-    static var mainSelectedSong: Song?
 }
+

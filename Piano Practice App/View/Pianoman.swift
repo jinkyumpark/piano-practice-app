@@ -16,6 +16,10 @@ struct Pianoman: View {
     @Environment(\.colorScheme) var systemColorScheme
     @EnvironmentObject var settings: Settings
     
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(sortDescriptors: []) var song: FetchedResults<Song>
+
+    
 //    @State private var tappedTwice: Bool = false
     @State private var tabSelection = 1
 //    var handler: Binding<Int> { Binding(
@@ -26,6 +30,25 @@ struct Pianoman: View {
 //            }
 //            self.tabSelection = $0
 //    })}
+    
+    func loadData() {
+        if song.count == 0 {
+            let initialSongData = Song(context: viewContext)
+            initialSongData.title = "Add Songs to Start!"
+            initialSongData.composer = "Add Songs in 'All Pieces'"
+            initialSongData.genre = "Classical"
+            let defaultImage = UIImage(named: "default")
+            let imageData = defaultImage?.pngData()
+            initialSongData.image = imageData
+            initialSongData.id = UUID()
+            do {
+                try viewContext.save()
+            } catch {
+                fatalError(error.localizedDescription)
+            }
+        }
+    }
+    
 
     var body: some View {
         ScrollViewReader { proxy in
@@ -76,6 +99,7 @@ struct Pianoman: View {
             }
             .accentColor(settings.primaryColor)
             .environment(\.colorScheme, settings.forcedDarkMode ? .dark : systemColorScheme)
+            .onAppear(perform: loadData)
         }
     }
 }

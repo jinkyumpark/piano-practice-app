@@ -22,7 +22,7 @@ struct PracticeView: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.colorScheme) var systemColorScheme
     
-    @EnvironmentObject var song: SongModel
+    @EnvironmentObject var songModel: SongModel
     @EnvironmentObject var settings: Settings
     @ObservedObject var audioRecorder = AudioRecorder()
     
@@ -39,20 +39,16 @@ struct PracticeView: View {
 
 
                 HStack {
-                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: practiceSong)
-                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: practiceSong)
-                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: practiceSong)
-                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: practiceSong)
-                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: practiceSong)
+                    ForEach(0..<5) {_ in
+                        PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: practiceSong)
+                    }
                 }
                 .padding(.bottom)
                 
                 HStack {
-                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: practiceSong)
-                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: practiceSong)
-                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: practiceSong)
-                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: practiceSong)
-                    PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: practiceSong)
+                    ForEach(0..<5) {_ in
+                        PracticePieceView(imageName: settings.selectedPracticePiece.imageName, practiceSong: practiceSong)
+                    }
                 }
             
                 Spacer()
@@ -109,14 +105,18 @@ struct PracticeView: View {
                 Spacer()
                 
             }
-            .navigationTitle(settings.currentLanguage == "ko" ? "연습 횟수" : settings.currentLanguage == "ja" ? "練習回数":"Practice Times" + ": \(practiceSong.timesPracticed)")
+            .navigationTitle(settings.currentLanguage == "ko" ? "연습 횟수" : settings.currentLanguage == "ja" ? "練習回数":"Practice Times" + " : \(practiceSong.timesPracticed)")
             .navigationBarItems(leading: Button(action: {
                 showingCancelAlert.toggle()
             }, label: {
                 Text(showingButtons ? "Cancel" : "")
                 }), trailing: Button(action: {
-//                    song.totalPracticeTime += Double(currentTime / 60 / 60)
-                    Song.mainSelectedSong = practiceSong
+                    // MARK - For testing, need to adjusted accordingly
+                    songModel.totalPracticeTime += Double(currentTime / 60 / 60)
+                    
+                    songModel.updatePracticeSession(song: practiceSong, practiceHour: Double(currentTime), practiceTime: 0)
+
+                    songModel.mainSelectedSong = practiceSong
                     presentationMode.wrappedValue.dismiss()
                 }, label: {
                     Text(showingButtons ? "Save" : "")

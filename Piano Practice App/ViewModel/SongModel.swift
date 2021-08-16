@@ -11,8 +11,15 @@ import SwiftUI
 var currentLanguage = Locale.current.languageCode
 
 class SongModel: NSObject, ObservableObject {
+    @Environment(\.managedObjectContext) private var viewContext
 
-//    @Published var mainSelectedSong: Song = placeholderSong[currentLanguage!] ?? placeholderSong["en"]! {
+    @Published var mainSelectedSong: Song? {
+        didSet {
+            UserDefaults.standard.set(mainSelectedSong, forKey: "mainSelectedSong")
+        }
+    }
+
+//    @Published var mainSelectedSong: Song? {
 //        didSet {
 //            let encoder = JSONEncoder()
 //            if let encoded = try? encoder.encode(mainSelectedSong) {
@@ -21,17 +28,33 @@ class SongModel: NSObject, ObservableObject {
 //        }
 //    }
 
-//    @Published var totalPracticeTime: Double = 0 {
-//        didSet {
-//            UserDefaults.standard.set(totalPracticeTime, forKey: "totalPracticeTime")
-//        }
-//    }
+    @Published var totalPracticeTime: Double = 0 {
+        didSet {
+            UserDefaults.standard.set(totalPracticeTime, forKey: "totalPracticeTime")
+        }
+    }
 
 //    @Published var averageInWeek: Double = 0
+    
+    func updatePracticeSession(song: Song, practiceHour: Double, practiceTime: Int) {
+        song.hourPracticed += practiceHour
+        song.timesPracticed += Int64(practiceTime)
+        do {
+            try viewContext.save()
+        } catch {
+//            fatalError(error.localizedDescription)
+        }
+    }
+
 
     let songGenre = ["Classical", "Pop", "Anime", "Jazz", "Rock"]
 
-//    init() {
+    override init() {
+        if let mainSelectedSong = UserDefaults.standard.object(forKey: "mainSelectedSong") {
+            self.mainSelectedSong = mainSelectedSong as? Song
+            return
+        }
+        
 //        if let mainSelectedSong = UserDefaults.standard.data(forKey: "mainSelectedSong") {
 //            let decoder = JSONDecoder()
 //            if let decoded = try? decoder.decode(Song.self, from: mainSelectedSong) {
@@ -40,8 +63,8 @@ class SongModel: NSObject, ObservableObject {
 //            }
 //        }
 
-//        self.totalPracticeTime = UserDefaults.standard.double(forKey: "totalPracticeTime")
-//    }
+        self.totalPracticeTime = UserDefaults.standard.double(forKey: "totalPracticeTime")
+    }
 }
 
 

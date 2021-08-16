@@ -29,8 +29,8 @@ struct AllPiecesDetailView: View {
                 }
                 
                 HStack {
-                    RectangleView(color: Color.red, title: "Practice Hour", subtitle: "10 H")
-                    RectangleView(color: Color.blue, title: "Practice Time", subtitle: "10 H")
+                    RectangleView(color: Color.blue, title: "Practice Times", subtitle: "\(song.timesPracticed)")
+                    RectangleView(color: Color.red, title: "Practice Hour", subtitle: "\(song.hourPracticed) H")
 
                 }
                 

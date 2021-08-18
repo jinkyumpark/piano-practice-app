@@ -111,10 +111,13 @@ struct PracticeView: View {
             }, label: {
                 Text(showingButtons ? "Cancel" : "")
                 }), trailing: Button(action: {
+                    
                     // MARK - For testing, need to adjusted accordingly
                     songModel.totalPracticeTime += Double(currentTime / 60 / 60)
                     
-                    songModel.updatePracticeSession(song: practiceSong, practiceHour: Double(currentTime), practiceTime: 0)
+                    songModel.updatePracticeHour(song: practiceSong, practiceHour: Double(currentTime / 60 / 60))
+                    
+                    songModel.updateLastUsed(song: practiceSong, lastUsed: Date(timeIntervalSinceReferenceDate: -123456789.0))
 
                     songModel.mainSelectedSong = practiceSong
                     presentationMode.wrappedValue.dismiss()

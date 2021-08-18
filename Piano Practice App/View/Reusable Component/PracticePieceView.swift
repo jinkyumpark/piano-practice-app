@@ -22,7 +22,7 @@ struct PracticePieceView: View {
             if count == 0 {
                 imageName = imageName + ".fill"
                 count += 1
-                songModel.updatePracticeSession(song: practiceSong, practiceHour: 0, practiceTime: 1)
+                songModel.updatePracticeTime(song: practiceSong, practiceTime: 1)
                 if UserDefaults.standard.object(forKey: "tapticFeedback") as? Bool ?? true {
                     let impactMed = UIImpactFeedbackGenerator(style: .heavy)
                     impactMed.impactOccurred()

@@ -25,9 +25,9 @@
 		1B38725D2695A9CC00A6A203 /* AllPiecesAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B38725C2695A9CC00A6A203 /* AllPiecesAddView.swift */; };
 		1B3872652695EDD100A6A203 /* PracticePiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3872642695EDD100A6A203 /* PracticePiece.swift */; };
 		1B38726726960F8200A6A203 /* RectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B38726626960F8200A6A203 /* RectangleView.swift */; };
-		1B4981FE26CA17C200C22944 /* Song+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4981FD26CA17C200C22944 /* Song+CoreDataProperties.swift */; };
 		1B62A96026C1177C009DDF59 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B62A96226C1177C009DDF59 /* Localizable.strings */; };
 		1BB79DCB269844E5006E8F05 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB79DCA269844E5006E8F05 /* Settings.swift */; };
+		1BC473FF26CB62D500620DF0 /* Song+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC473FE26CB62D500620DF0 /* Song+CoreDataProperties.swift */; };
 		1BC84BDB2693FF3C00684DA7 /* PracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC84BDA2693FF3C00684DA7 /* PracticeView.swift */; };
 		1BC84BDF2694768300684DA7 /* RecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC84BDE2694768300684DA7 /* RecordingView.swift */; };
 		1BDF85CF25D7F4C700ABE572 /* Piano_Practice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDF85CE25D7F4C700ABE572 /* Piano_Practice.swift */; };
@@ -60,11 +60,11 @@
 		1B38725C2695A9CC00A6A203 /* AllPiecesAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPiecesAddView.swift; sourceTree = "<group>"; };
 		1B3872642695EDD100A6A203 /* PracticePiece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticePiece.swift; sourceTree = "<group>"; };
 		1B38726626960F8200A6A203 /* RectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleView.swift; sourceTree = "<group>"; };
-		1B4981FD26CA17C200C22944 /* Song+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Song+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1B62A96326C11784009DDF59 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1B62A96426C11AFF009DDF59 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1B62A96626C12063009DDF59 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1BB79DCA269844E5006E8F05 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		1BC473FE26CB62D500620DF0 /* Song+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Song+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1BC84BDA2693FF3C00684DA7 /* PracticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeView.swift; sourceTree = "<group>"; };
 		1BC84BDE2694768300684DA7 /* RecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingView.swift; sourceTree = "<group>"; };
 		1BDF85CB25D7F4C700ABE572 /* Piano Practice App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Piano Practice App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,7 +169,7 @@
 		1BDF85C225D7F4C700ABE572 = {
 			isa = PBXGroup;
 			children = (
-				1B4981FD26CA17C200C22944 /* Song+CoreDataProperties.swift */,
+				1BC473FE26CB62D500620DF0 /* Song+CoreDataProperties.swift */,
 				1B1DCCEA26C2347A00A8F43D /* Song+CoreDataClass.swift */,
 				1BDF85CD25D7F4C700ABE572 /* Piano Practice App */,
 				1BDF85CC25D7F4C700ABE572 /* Products */,
@@ -311,7 +311,7 @@
 				1B1DCCE726C2298C00A8F43D /* PianoPracticeDataModel.xcdatamodeld in Sources */,
 				1B065C8F26B6FD4B003F6A41 /* RecordingListView.swift in Sources */,
 				1BDF85CF25D7F4C700ABE572 /* Piano_Practice.swift in Sources */,
-				1B4981FE26CA17C200C22944 /* Song+CoreDataProperties.swift in Sources */,
+				1BC473FF26CB62D500620DF0 /* Song+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

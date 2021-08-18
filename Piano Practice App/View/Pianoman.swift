@@ -19,18 +19,6 @@ struct Pianoman: View {
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(sortDescriptors: []) var song: FetchedResults<Song>
 
-    
-//    @State private var tappedTwice: Bool = false
-    @State private var tabSelection = 1
-//    var handler: Binding<Int> { Binding(
-//        get: {self.tabSelection},
-//        set: {
-//            if $0 == self.tabSelection {
-//                tappedTwice = true
-//            }
-//            self.tabSelection = $0
-//    })}
-    
     func loadData() {
         if song.count == 0 {
             let initialSongData = Song(context: viewContext)
@@ -41,6 +29,7 @@ struct Pianoman: View {
             let imageData = defaultImage?.pngData()
             initialSongData.image = imageData
             initialSongData.id = UUID()
+            initialSongData.lastUsed = Date(timeIntervalSinceReferenceDate: -123456789.0)
             do {
                 try viewContext.save()
             } catch {
@@ -80,15 +69,6 @@ struct Pianoman: View {
                         Text("All Pieces")
                     }
                     .tag(4)
-//                    .id(4)
-//                    .onChange(of: tappedTwice, perform: {tapped in
-//                        if tapped {
-//                            withAnimation {
-//                                proxy.scrollTo(4)
-//                            }
-//                            tappedTwice = false
-//                        }
-//                    })
                 
                 SettingView()
                     .tabItem {

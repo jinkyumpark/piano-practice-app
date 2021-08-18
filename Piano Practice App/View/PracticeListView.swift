@@ -13,7 +13,7 @@ struct PracticeListView: View {
     @EnvironmentObject var settings: Settings
     @EnvironmentObject var audioRecorder: AudioRecorder
     @Environment(\.managedObjectContext) private var viewContext
-    @FetchRequest(sortDescriptors: []) var songs: FetchedResults<Song>
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "lastUsed", ascending: true)]) var songs: FetchedResults<Song>
     
     @State var showingPracticeView: Bool = false
     @State var currentView: Int = 1

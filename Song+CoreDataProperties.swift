@@ -2,7 +2,7 @@
 //  Song+CoreDataProperties.swift
 //  Piano Practice App
 //
-//  Created by Jin Park on 8/16/21.
+//  Created by Jin Park on 8/17/21.
 //
 //
 
@@ -23,6 +23,7 @@ extension Song {
     @NSManaged public var image: Data?
     @NSManaged public var timesPracticed: Int64
     @NSManaged public var title: String
+    @NSManaged public var lastUsed: Date
 
 }
 

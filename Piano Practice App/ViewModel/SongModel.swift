@@ -13,11 +13,11 @@ var currentLanguage = Locale.current.languageCode
 class SongModel: NSObject, ObservableObject {
     @Environment(\.managedObjectContext) private var viewContext
 
-    @Published var mainSelectedSong: Song? {
-        didSet {
-            UserDefaults.standard.set(mainSelectedSong, forKey: "mainSelectedSong")
-        }
-    }
+//    @Published var mainSelectedSong: Song? {
+//        didSet {
+//            UserDefaults.standard.set(mainSelectedSong, forKey: "mainSelectedSong")
+//        }
+//    }
 
 //    @Published var mainSelectedSong: Song? {
 //        didSet {
@@ -27,6 +27,8 @@ class SongModel: NSObject, ObservableObject {
 //            }
 //        }
 //    }
+    
+    @Published var mainSelectedSong: Song?
 
     @Published var totalPracticeTime: Double = 0 {
         didSet {
@@ -36,8 +38,7 @@ class SongModel: NSObject, ObservableObject {
 
 //    @Published var averageInWeek: Double = 0
     
-    func updatePracticeSession(song: Song, practiceHour: Double, practiceTime: Int) {
-        song.hourPracticed += practiceHour
+    func updatePracticeTime(song: Song, practiceTime: Int) {
         song.timesPracticed += Int64(practiceTime)
         do {
             try viewContext.save()
@@ -45,15 +46,32 @@ class SongModel: NSObject, ObservableObject {
 //            fatalError(error.localizedDescription)
         }
     }
+    
+    func updatePracticeHour(song: Song, practiceHour: Double) {
+        song.hourPracticed += practiceHour
+        do {
+            try viewContext.save()
+        } catch {
+            
+        }
+    }
 
+    func updateLastUsed(song: Song, lastUsed: Date) {
+        song.lastUsed = lastUsed
+        do {
+            try viewContext.save()
+        } catch {
+            
+        }
+    }
 
     let songGenre = ["Classical", "Pop", "Anime", "Jazz", "Rock"]
 
     override init() {
-        if let mainSelectedSong = UserDefaults.standard.object(forKey: "mainSelectedSong") {
-            self.mainSelectedSong = mainSelectedSong as? Song
-            return
-        }
+//        if let mainSelectedSong = UserDefaults.standard.object(forKey: "mainSelectedSong") {
+//            self.mainSelectedSong = mainSelectedSong as? Song
+//            return
+//        }
         
 //        if let mainSelectedSong = UserDefaults.standard.data(forKey: "mainSelectedSong") {
 //            let decoder = JSONDecoder()

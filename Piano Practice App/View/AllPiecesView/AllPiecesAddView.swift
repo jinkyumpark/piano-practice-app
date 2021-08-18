@@ -104,6 +104,7 @@ struct AllPiecesAddView: View {
         let imageData = image.pngData()
         song.image = imageData
         song.id = UUID()
+        song.lastUsed = Date(timeIntervalSinceReferenceDate: -123456789.0)
         do {
             try viewContext.save()
         } catch {

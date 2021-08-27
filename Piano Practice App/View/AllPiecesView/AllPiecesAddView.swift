@@ -105,6 +105,8 @@ struct AllPiecesAddView: View {
         song.image = imageData
         song.id = UUID()
         song.lastUsed = Date(timeIntervalSinceReferenceDate: -123456789.0)
+        song.timesPracticed = 0
+        song.hourPracticed = 0
         do {
             try viewContext.save()
         } catch {

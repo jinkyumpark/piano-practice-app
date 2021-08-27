@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct Pianoman: View {
-    // TODO : App Crash when sheet is presented
+    // TODO : App Crash when sheet is presented, Possibly bug in iOS 14?
     // TODO : Recording features
-    // TODO : Save user song data to coreData
     // TODO : Update practiceHour/time accordingly
          
     @Environment(\.colorScheme) var systemColorScheme
@@ -56,12 +55,12 @@ struct Pianoman: View {
                     }
                     .tag(2)
 
-                RecordingView()
-                    .tabItem {
-                        Image(systemName: "record.circle.fill")
-                        Text("Recordings")
-                    }
-                    .tag(3)
+//                RecordingView()
+//                    .tabItem {
+//                        Image(systemName: "record.circle.fill")
+//                        Text("Recordings")
+//                    }
+//                    .tag(3)
                 
                 AllPiecesView()
                     .tabItem {

@@ -21,7 +21,7 @@ extension Song {
     @NSManaged public var hourPracticed: Double
     @NSManaged public var id: UUID
     @NSManaged public var image: Data?
-    @NSManaged public var timesPracticed: Int64
+    @NSManaged public var timesPracticed: Double
     @NSManaged public var title: String
     @NSManaged public var lastUsed: Date
 

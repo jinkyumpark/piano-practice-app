@@ -39,7 +39,7 @@ class SongModel: NSObject, ObservableObject {
 //    @Published var averageInWeek: Double = 0
     
     func updatePracticeTime(song: Song, practiceTime: Int) {
-        song.timesPracticed += Int64(practiceTime)
+        song.timesPracticed += Double(practiceTime)
         do {
             try viewContext.save()
         } catch {

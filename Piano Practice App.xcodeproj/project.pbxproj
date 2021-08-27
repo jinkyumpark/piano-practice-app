@@ -114,10 +114,10 @@
 			isa = PBXGroup;
 			children = (
 				1B38725926957EBB00A6A203 /* SongView.swift */,
-				1B226B2726994479004774CF /* PracticePieceView.swift */,
-				1B38726626960F8200A6A203 /* RectangleView.swift */,
 				1BF777D826AC650700F99EC0 /* RectanglePlayView.swift */,
+				1B38726626960F8200A6A203 /* RectangleView.swift */,
 				1BC84BDA2693FF3C00684DA7 /* PracticeView.swift */,
+				1B226B2726994479004774CF /* PracticePieceView.swift */,
 			);
 			path = "Reusable Component";
 			sourceTree = "<group>";

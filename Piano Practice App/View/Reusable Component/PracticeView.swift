@@ -113,12 +113,12 @@ struct PracticeView: View {
                 }), trailing: Button(action: {
                     
                     // MARK - For testing, need to adjusted accordingly
-                    songModel.totalPracticeTime += Double(currentTime / 60 / 60)
+//                    songModel.totalPracticeTime += Double(currentTime / 60 / 60)
                     
                     songModel.updatePracticeHour(song: practiceSong, practiceHour: Double(currentTime / 60 / 60))
                     
                     songModel.updateLastUsed(song: practiceSong, lastUsed: Date(timeIntervalSinceReferenceDate: -123456789.0))
-
+                    
                     songModel.mainSelectedSong = practiceSong
                     presentationMode.wrappedValue.dismiss()
                 }, label: {

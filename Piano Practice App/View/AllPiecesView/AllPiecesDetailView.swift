@@ -34,12 +34,12 @@ struct AllPiecesDetailView: View {
 
                 }
                 
-                HStack {
-                    Text("Recordings")
-                        .padding()
-                        .font(.largeTitle)
-                    Spacer()
-                }
+//                HStack {
+//                    Text("Recordings")
+//                        .padding()
+//                        .font(.largeTitle)
+//                    Spacer()
+//                }
 
                 Spacer()
             }

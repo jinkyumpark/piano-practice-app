@@ -55,12 +55,12 @@ struct Pianoman: View {
                     }
                     .tag(2)
 
-                RecordingView()
-                    .tabItem {
-                        Image(systemName: "record.circle.fill")
-                        Text("Recordings")
-                    }
-                    .tag(3)
+//                RecordingView()
+//                    .tabItem {
+//                        Image(systemName: "record.circle.fill")
+//                        Text("Recordings")
+//                    }
+//                    .tag(3)
                 
                 AllPiecesView()
                     .tabItem {

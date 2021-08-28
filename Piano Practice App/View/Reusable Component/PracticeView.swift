@@ -64,38 +64,49 @@ struct PracticeView: View {
                 Spacer()
                 
                 HStack {
+//                    Button(action: {
+//                        if !audioRecorder.recording {
+//                            self.audioRecorder.startRecording()
+//                        } else {
+//                            showingRecordingAlert = true
+//                            if saveRecordings {
+//                                self.selectSongPresented = true
+//                                self.audioRecorder.songIndex = songIndex
+//                                self.audioRecorder.stopRecording()
+//                            } else {
+//                                self.audioRecorder.recording = false
+//                            }
+//                        }
+//
+//                    }, label: {
+//                        Image(systemName: self.audioRecorder.recording ? "stop.circle.fill":"record.circle")
+//                            .frame(width: 150, height: 75)
+//                            .font(.system(size: 50))
+//                            .foregroundColor(.red)
+////                            .background(colorScheme == .light ? Color.white:Color.black)
+//                            .overlay(
+//                                RoundedRectangle(cornerRadius: 30)
+//                                    .stroke(systemColorScheme == .light ? Color.gray:Color.white, lineWidth: 5)
+//                            )
+//                    })
+                    
                     Button(action: {
-                        if !audioRecorder.recording {
-                            self.audioRecorder.startRecording()
-                        } else {
-                            showingRecordingAlert = true
-                            if saveRecordings {
-                                self.selectSongPresented = true
-                                self.audioRecorder.songIndex = songIndex
-                                self.audioRecorder.stopRecording()
-                            } else {
-                                self.audioRecorder.recording = false
-                            }
-                        }
-
+                        timerStartAutomatic = true
                     }, label: {
-                        Image(systemName: self.audioRecorder.recording ? "stop.circle.fill":"record.circle")
+                        Text("Resume")
                             .frame(width: 150, height: 75)
-                            .font(.system(size: 50))
-                            .foregroundColor(.red)
-//                            .background(colorScheme == .light ? Color.white:Color.black)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 30)
-                                    .stroke(systemColorScheme == .light ? Color.gray:Color.white, lineWidth: 5)
-                            )
+                            .background(Color.green)
+                            .font(.largeTitle)
+                            .foregroundColor(.white)
+                            .cornerRadius(30)
                     })
 
                     Button(action: {
-                        timerStartAutomatic.toggle()
+                        timerStartAutomatic = false
                     }, label: {
-                        Text(timerStartAutomatic ? "Pause":"Resume")
+                        Text("Pause")
                             .frame(width: 150, height: 75)
-                            .background(timerStartAutomatic ? Color.red:Color.green)
+                            .background(Color.red)
                             .font(.largeTitle)
                             .foregroundColor(.white)
                             .cornerRadius(30)
